@@ -10,7 +10,7 @@ const ProjectsInitiatives = () => {
   return (
     <Routes>
     <Route path="current-projects" element={<CurrentProjects />} />
-  <Route path="past-projects" element={<PastProjects />} />
+   <Route path="past-projects" element={<PastProjects />} />
   <Route path="how-to-get-involved" element={<GetInvolved />} />
   <Route path="success-stories" element={<SuccessStories />} />
   </Routes>

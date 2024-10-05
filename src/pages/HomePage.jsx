@@ -96,7 +96,7 @@ const HomePage = () => {
       </div>
 
       {/* Primary Functions of the SPWC */}
-      <div className="px-4 sm:px-8 md:px-16 lg:px-24">
+      <div className="px-4 space-y-5 mb-10 sm:px-8 md:px-16 lg:px-24">
         <h2 className="text-lg sm:text-xl md:text-xl lg:text-2xl font-bold leading-tight mb-6 text-logoColor">
           Primary Functions of the SPWC
         </h2>
@@ -133,23 +133,6 @@ const HomePage = () => {
         </h2>
       </div>
 
-      {/* Mission and Vision */}
-      <div className="px-4 sm:px-8 md:px-16 lg:px-24 py-10">
-        <h2 className="text-lg sm:text-xl md:text-xl lg:text-2xl font-bold leading-tight mb-6 text-logoColor">
-          Mission and Vision
-        </h2>
-        <div className="pb-4">
-          <h3 className="text-logoColor text-base sm:text-lg font-semibold">VISION</h3>
-          <p className="text-base">To be the leading Seafarers' Welfare Organization in Africa.</p>
-        </div>
-        <div>
-          <h3 className="text-logoColor text-base sm:text-lg font-semibold">MISSION</h3>
-          <p className="text-base">
-            To promote, advocate, guide, train and conduct studies to support
-            its constituent members.
-          </p>
-        </div>
-      </div>
     </div>
   );
 };

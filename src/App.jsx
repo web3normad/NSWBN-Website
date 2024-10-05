@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 
-//Import Component
+// Import Components
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
 
@@ -25,61 +25,58 @@ import PrivacyPolicy from "./pages/PrivacyTerms.jsx";
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="App flex flex-col min-h-screen">
+        {/* Header should stick to the top */}
         <Header />
-        
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/home-page/*" element={<HomePage />} />
 
-          {/* About Us Section */}
-          <Route path="/about-us/*" element={<AboutUs />} />
+        {/* Main content area should expand to fill the space */}
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/home-page/*" element={<HomePage />} />
 
-          {/* Services Section */}
-          <Route path="/services/*" element={<Services />} />
+            {/* About Us Section */}
+            <Route path="/about-us/*" element={<AboutUs />} />
 
-          {/* Seafarers' Resources Section */}
-          <Route
-            path="/seafarers-resources/*"
-            element={<SeafarersResources />}
-          />
+            {/* Services Section */}
+            <Route path="/services/*" element={<Services />} />
 
-          {/* Projects and Initiatives Section */}
-          <Route
-            path="/projects-initiatives/*"
-            element={<ProjectsInitiatives />}
-          />
+            {/* Seafarers' Resources Section */}
+            <Route path="/seafarers-resources/*" element={<SeafarersResources />} />
 
-          {/* News and Events Section */}
-          <Route path="/news-events/*" element={<NewsEvents />} />
+            {/* Projects and Initiatives Section */}
+            <Route path="/projects-initiatives/*" element={<ProjectsInitiatives />} />
 
-          {/* Partnerships Section */}
-          <Route path="/partnerships/*" element={<Partnerships />} />
+            {/* News and Events Section */}
+            <Route path="/news-events/*" element={<NewsEvents />} />
 
-          {/* Research and Publications Section */}
-          <Route
-            path="/research-publications/*"
-            element={<ResearchPublications />}
-          />
+            {/* Partnerships Section */}
+            <Route path="/partnerships/*" element={<Partnerships />} />
 
-          {/* Get Involved Section */}
-          <Route path="/get-involved/*" element={<GetInvolved />} />
+            {/* Research and Publications Section */}
+            <Route path="/research-publications/*" element={<ResearchPublications />} />
 
-          {/* FAQs Section */}
-          <Route path="/faqs/*" element={<FAQs />} />
+            {/* Get Involved Section */}
+            <Route path="/get-involved/*" element={<GetInvolved />} />
 
-          {/* Contact Us Section */}
-          <Route path="/contact-us/*" element={<ContactUs />} />
+            {/* FAQs Section */}
+            <Route path="/faqs/*" element={<FAQs />} />
 
-          {/* Login/Registration Section */}
-          <Route path="/auth/*" element={<Authentication/>} />
+            {/* Contact Us Section */}
+            <Route path="/contact-us/*" element={<ContactUs />} />
 
-          {/* Sitemap Section */}
-          <Route path="/sitemap" element={<Sitemap />} />
+            {/* Login/Registration Section */}
+            <Route path="/auth/*" element={<Authentication />} />
 
-          {/* Privacy Policy and Terms of Service Section */}
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        </Routes>
+            {/* Sitemap Section */}
+            <Route path="/sitemap" element={<Sitemap />} />
+
+            {/* Privacy Policy and Terms of Service Section */}
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          </Routes>
+        </main>
+
+        {/* Footer should stick to the bottom */}
         <Footer />
       </div>
     </Router>

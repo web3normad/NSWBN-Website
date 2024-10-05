@@ -47,8 +47,8 @@ const Header = () => {
           <Link to="/home-page">
             <div className="flex gap-3 items-center">
               <img src={Logo} alt="NSWBN Logo" className="w-20" />
-              <div className="border-l-2 border-primary-100 px-2 text-primary-100">
-                <h1 className="font-bold">National Seafarers</h1>
+              <div className="border-l-2 border-primary-100 px-1 text-primary-100">
+                <h1 className="font-bold text-nowrap">National Seafarers Welfare</h1>
                 <h1 className="font-bold">Board of Nigeria</h1>
               </div>
             </div>
@@ -68,7 +68,19 @@ const Header = () => {
 
         {/* Navigation in the center for desktop */}
         <div className="hidden md:flex flex-col gap-4 md:flex-row md:flex-1 md:justify-center items-center space-y-4 md:space-y-0 md:space-x-2">
-          <nav className="flex flex-col items-center gap-4 md:flex-row space-y-6 md:space-y-0 md:space-x-2 px-5 text-nowrap text-sm font-semibold">
+          <nav className="flex flex-col items-center gap-2 md:flex-row space-y-5 md:space-y-0 md:space-x-2 px-4 text-nowrap text-sm font-semibold">
+          <div className="relative">
+              <Link to="/home-page">
+              <button
+                onClick={() => toggleDropdown('seafarersResources')}
+                className=" flex items-center gap-1 focus:outline-none hover:text-logoColor"
+              >
+               Home
+                
+              </button>
+              </Link>
+            </div>
+            
             <div className="relative">
               <button
                 onClick={() => toggleDropdown("aboutUs")}
@@ -111,13 +123,7 @@ const Header = () => {
                   >
                     Board Members
                   </Link>
-                  <Link
-                    to="/about-us/contact-info"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Contact Information
-                  </Link>
+                 
                 </div>
               )}
             </div>
@@ -304,7 +310,7 @@ const Header = () => {
                 {openDropdown === 'contactUs' ? <RiArrowUpSLine /> : <RiArrowDownSLine />}{" "}
               </button>
               {openDropdown === 'contactUs'  && (
-                <div className="absolute bg-primary-100 text-black shadow-lg mt-5 rounded-md w-60">
+                <div className="absolute bg-primary-100 text-black shadow-lg mt-5 right-0 rounded-md w-52">
                   <Link
                     to="/contact-us/contact-form"
                     className="block px-4 py-2 hover:bg-gray-200"
@@ -319,13 +325,7 @@ const Header = () => {
                   >
                     Office Locations
                   </Link>
-                  <Link
-                    to="/contact-us/feedback-suggestions"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Feedback and Suggestions
-                  </Link>
+                  
                   <Link
                     to="/faqs"
                     className="block px-4 py-2 hover:bg-gray-200"
@@ -337,7 +337,7 @@ const Header = () => {
               )}
             </div>
 
-            <div className="relative">
+            {/* <div className="relative">
               <button
                 onClick={() => toggleDropdown('auth')}
                 className="bg-primary-100 text-white flex items-center gap-1 px-8 py-2 rounded-md focus:outline-none "
@@ -354,16 +354,16 @@ const Header = () => {
                   >
                     Login
                   </Link>
-                  {/* <Link
+                  <Link
                     to="/auth/registration"
                     className="block px-4 py-2 hover:bg-gray-200"
                     onClick={handleLinkClick}
                   >
                     Register
-                  </Link> */}
+                  </Link>
                 </div>
               )}
-            </div>
+            </div> */}
           </nav>
         </div>
 
@@ -739,7 +739,7 @@ const Header = () => {
                 </div>
               )}
             </div>
-            <div className="relative">
+            {/* <div className="relative">
               <button
                 onClick={() => toggleDropdown('loginRegistration')}
                 className="bg-logoColor text-white flex items-center gap-1 px-2 py-3 rounded-md focus:outline-none "
@@ -769,7 +769,7 @@ const Header = () => {
                   </Link>
                 </div>
               )}
-            </div>
+            </div> */}
           </nav>
         </div>
       </div>

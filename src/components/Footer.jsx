@@ -11,8 +11,8 @@ import Logo from "../assets/images/NSWBN_logo_two.png";
 
 const Footer = () => {
   return (
-    <div className="w-full bg-primary-200 p-4">
-      <div className="px-6 md:px-12 lg:px-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div className="w-full bg-primary-100 p-4">
+      <div className="px-6 md:px-12 lg:px-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {/* Logo and Social Media Links */}
         <div className="flex flex-col items-start gap-4 col-span-1 sm:col-span-2 lg:col-span-4">
           <div className="flex gap-2">
@@ -22,8 +22,8 @@ const Footer = () => {
             >
               <div className="flex gap-3 items-center">
                 <img src={Logo} alt="NSWBN Logo" className="w-20" />
-                <div className="border-l-2 border-primary-100 px-2 text-primary-100">
-                  <h1 className="font-bold">National Seafarers</h1>
+                <div className="border-l-2 border-primary-300 px-2 text-primary-300">
+                  <h1 className="font-bold">National Seafarers Welfare</h1>
                   <h1 className="font-bold">Board of Nigeria</h1>
                 </div>
               </div>
@@ -31,7 +31,7 @@ const Footer = () => {
           </div>
           <div className="flex space-x-2 sm:space-x-4">
             <a
-              href="https://www.linkedin.com"
+              href="https://ng.linkedin.com/company/national-seafarers-welfare-board-of-nigeria "
               target="_blank"
               rel="noopener noreferrer"
               className="p-1 sm:p-2 rounded-full bg-white text-black"
@@ -39,7 +39,7 @@ const Footer = () => {
               <FaLinkedinIn className="text-sm sm:text-xl" />
             </a>
             <a
-              href="https://www.facebook.com"
+              href="https://www.facebook.com/NSWBN"
               target="_blank"
               rel="noopener noreferrer"
               className="p-1 sm:p-2 rounded-full bg-white text-black"
@@ -63,7 +63,7 @@ const Footer = () => {
               <FaXTwitter className="text-sm sm:text-xl" />
             </a>
             <a
-              href="https://www.youtube.com"
+              href="http://www.youtube.com/@NSWBN"
               target="_blank"
               rel="noopener noreferrer"
               className="p-1 sm:p-2 rounded-full bg-white text-black"
@@ -78,7 +78,7 @@ const Footer = () => {
           <h1 className="text-md sm:text-lg font-semibold text-white mb-4">
             Organization
           </h1>
-          <ul className="space-y-2 text-sm sm:text-base text-gray-400">
+          <ul className="space-y-2 text-sm sm:text-base text-primary-300">
             <li>
               <Link to="/company/history" className="hover:text-logoColor">History</Link>
             </li>
@@ -100,7 +100,7 @@ const Footer = () => {
           <h1 className="text-md sm:text-lg font-semibold text-white mb-4">
             SERVICES
           </h1>
-          <ul className="space-y-2 text-sm sm:text-base text-gray-400">
+          <ul className="space-y-2 text-sm sm:text-base text-primary-300">
             <li>
               <Link to="/services/welfare-services" className="hover:text-logoColor">Welfare Services</Link>
             </li>
@@ -135,7 +135,7 @@ const Footer = () => {
           <h1 className="text-md sm:text-lg font-semibold text-white mb-4">
             Seafarers Resources
           </h1>
-          <ul className="space-y-2 text-sm sm:text-base text-gray-400">
+          <ul className="space-y-2 text-sm sm:text-base text-primary-300">
             <li>
               <Link
                 to="/seafarers-resources/seafarers-rights"
@@ -183,7 +183,7 @@ const Footer = () => {
           <h1 className="text-md sm:text-lg font-semibold text-white mb-4">
             Projects & Initiatives
           </h1>
-          <ul className="space-y-2 text-sm sm:text-base text-gray-400">
+          <ul className="space-y-2 text-sm sm:text-base text-primary-300">
           <li>
           <Link
                     to="/projects-initiatives/current-projects"
@@ -223,7 +223,7 @@ const Footer = () => {
           <h1 className="text-md sm:text-lg font-semibold text-white mb-4">
             Partnerships
           </h1>
-          <ul className="space-y-2 text-sm sm:text-base text-gray-400">
+          <ul className="space-y-2 text-sm sm:text-base text-primary-300">
           <li>
           <Link
                     to="/partnerships/our-partners"
@@ -272,7 +272,7 @@ const Footer = () => {
           <h1 className="text-md sm:text-lg font-semibold text-white mb-4">
             LEGAL
           </h1>
-          <ul className="space-y-2 text-sm sm:text-base text-gray-400">
+          <ul className="space-y-2 text-sm sm:text-base text-primary-300">
             <li>
               <Link to="/legal/privacy-policy">Privacy Policy</Link>
             </li>
@@ -289,7 +289,7 @@ const Footer = () => {
           <h1 className="text-md sm:text-lg font-semibold text-white mb-4">
             Sitemap
           </h1>
-          <ul className="space-y-2 text-sm sm:text-base text-gray-400">
+          <ul className="space-y-2 text-sm sm:text-base text-primary-300">
             <li>
               <Link to="/sitemap" className="hover:text-logoColor">Pages Overview</Link>
             </li>
@@ -300,7 +300,7 @@ const Footer = () => {
           <h1 className="text-md sm:text-lg font-semibold text-white mb-4">
             Contact Us
           </h1>
-          <div className="text-sm sm:text-base text-gray-400">
+          <div className="text-sm sm:text-base text-primary-300">
             <div className="mb-4">
               <h2 className="font-semibold text-white">Headquarter</h2>
               <p>
@@ -315,7 +315,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="border-t p-7 border-gray-700 mt-8 pt-4 flex flex-col md:flex-row justify-between text-sm sm:text-base text-gray-400">
+      <div className="border-t p-7 border-gray-700 mt-8 pt-4 flex flex-col md:flex-row justify-between text-sm sm:text-base text-primary-300">
         <p className="mb-4 md:mb-0">
           Copyright © 2024 National Seafarers Welfare Board of Nigeria. All
           Rights Reserved.{" "}
