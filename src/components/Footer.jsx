@@ -7,7 +7,7 @@ import {
   FaXTwitter,
   FaYoutube,
 } from "react-icons/fa6";
-import Logo from "../assets/images/NSWBN_logo_two.png";
+import Logo from "../assets/images/NSWBN_Logo_two.png";
 
 const Footer = () => {
   return (
