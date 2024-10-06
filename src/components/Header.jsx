@@ -59,9 +59,9 @@ const Header = () => {
         <div className="md:hidden">
           <button onClick={toggleSidebar} className="text-primary-200 text-2xl">
             {isOpen ? (
-              <AiOutlineClose className="text-white ml-24" />
+              <AiOutlineClose className="text-primary-100 ml-24" />
             ) : (
-              <AiOutlineMenu className="ml-24" />
+              <AiOutlineMenu className="text-primary-100 ml-24" />
             )}
           </button>
         </div>
@@ -369,7 +369,7 @@ const Header = () => {
 
         {/* Sidebar for mobile */}
         <div
-          className={`fixed top-0 right-0 h-full w-64 bg-bgText text-white z-50 transform ${
+          className={`fixed top-0 right-0 h-full w-64 bg-primary-100 text-white z-50 transform ${
             isOpen ? "translate-x-0" : "translate-x-full"
           } transition-transform duration-300 ease-in-out`}
         >
@@ -380,13 +380,13 @@ const Header = () => {
             <div className="relative">
               <button
                 onClick={() => toggleDropdown('aboutUs')}
-                className="text-white flex items-center gap-2 focus:outline-none hover:text-gray-500"
+                className="text-white flex items-center gap-2 focus:outline-none hover:text-gray-200"
               >
                 About Us
                 {openDropdown ? <RiArrowUpSLine /> : <RiArrowDownSLine />}{" "}
               </button>
               {openDropdown  && (
-                <div className="bg-gray-800 mt-2 rounded-md">
+                <div className="mt-2 rounded-md">
                   <Link
                     to="/about-us/history"
                     className="block px-4 py-2 hover:bg-gray-600"
@@ -428,13 +428,13 @@ const Header = () => {
             <div className="relative">
               <button
                 onClick={() => toggleDropdown('services')}
-                className="text-white flex items-center gap-2 focus:outline-none hover:text-gray-500"
+                className="text-white flex items-center gap-2 focus:outline-none hover:text-gray-200"
               >
                 Services
                 {openDropdown ? <RiArrowUpSLine /> : <RiArrowDownSLine />}{" "}
               </button>
               {openDropdown && (
-                <div className="bg-gray-800 mt-2 rounded-md">
+                <div className=" mt-2 rounded-md">
                   <Link
                     to="/services/welfare-services"
                     className="block px-4 py-2 hover:bg-gray-600"
@@ -476,7 +476,7 @@ const Header = () => {
             <div className="relative">
               <button
                 onClick={() => toggleDropdown('seafarersResources')}
-                className="text-white flex items-center gap-2 focus:outline-none hover:text-gray-500"
+                className="text-white flex items-center gap-2 focus:outline-none hover:text-gray-200"
               >
                 Seafarers' Resources
                 {openDropdown ? (
@@ -486,7 +486,7 @@ const Header = () => {
                 )}{" "}
               </button>
               {openDropdown && (
-                <div className="bg-gray-800 mt-2 rounded-md">
+                <div className=" mt-2 rounded-md">
                   <Link
                     to="/seafarers-resources/seafarers-rights"
                     className="block px-4 py-2 hover:bg-gray-200"
@@ -528,7 +528,7 @@ const Header = () => {
             <div className="relative">
               <button
                 onClick={() => toggleDropdown('projectsInitiatives')}
-                className="text-white flex items-center gap-2 focus:outline-none hover:text-gray-500"
+                className="text-white flex items-center gap-2 focus:outline-none hover:text-gray-200"
               >
                 Projects and Initiatives
                 {openDropdown? (
@@ -538,7 +538,7 @@ const Header = () => {
                 )}{" "}
               </button>
               {openDropdown && (
-                <div className="bg-gray-800 mt-2 rounded-md">
+                <div className=" mt-2 rounded-md">
                   <Link
                     to="/projects-initiatives/current-projects"
                     className="block px-4 py-2 hover:bg-gray-200"
@@ -573,7 +573,7 @@ const Header = () => {
             <div className="relative">
               <button
                 onClick={() => toggleDropdown('newsEvents')}
-                className="text-white flex items-center gap-2 focus:outline-none hover:text-gray-500"
+                className="text-white flex items-center gap-2 focus:outline-none hover:text-gray-200"
               >
                 News and Events
                 {openDropdown ? (
@@ -583,7 +583,7 @@ const Header = () => {
                 )}{" "}
               </button>
               {openDropdown && (
-                <div className="bg-gray-800 mt-2 rounded-md">
+                <div className=" mt-2 rounded-md">
                   <Link
                     to="/news-events/latest-news"
                     className="block px-4 py-2 hover:bg-gray-200"
@@ -611,7 +611,7 @@ const Header = () => {
             <div className="relative">
               <button
                 onClick={() => toggleDropdown('partnerships')}
-                className="text-white flex items-center gap-2 focus:outline-none hover:text-gray-500"
+                className="text-white flex items-center gap-2 focus:outline-none hover:text-gray-200"
               >
                 Partnerships
                 {openDropdown ? (
@@ -621,7 +621,7 @@ const Header = () => {
                 )}{" "}
               </button>
               {openDropdown && (
-                <div className="bg-gray-800 mt-2 rounded-md">
+                <div className=" mt-2 rounded-md">
                   <Link
                     to="/partnerships/our-partners"
                     className="block px-4 py-2 hover:bg-gray-200"
@@ -663,7 +663,7 @@ const Header = () => {
             <div className="relative">
               <button
                 onClick={() => toggleDropdown('researchPublications')}
-                className="text-white flex items-center gap-2 focus:outline-none hover:text-gray-500"
+                className="text-white flex items-center gap-2 focus:outline-none hover:text-gray-200"
               >
                 Research & Publication
                 {openDropdown ? (
@@ -673,7 +673,7 @@ const Header = () => {
                 )}{" "}
               </button>
               {openDropdown && (
-                <div className="bg-gray-800 mt-2 rounded-md">
+                <div className="mt-2 rounded-md">
                   <Link
                     to="/research-publications/research-papers"
                     className="block px-4 py-2 hover:bg-gray-200"
@@ -701,13 +701,13 @@ const Header = () => {
             <div className="relative">
               <button
                 onClick={() => toggleDropdown('contactUs')}
-                className="text-white flex items-center gap-2 focus:outline-none hover:text-gray-500"
+                className="text-white flex items-center gap-2 focus:outline-none hover:text-gray-200"
               >
                 Contact Us
                 {openDropdown ? <RiArrowUpSLine /> : <RiArrowDownSLine />}{" "}
               </button>
               {openDropdown && (
-                <div className="bg-gray-800 mt-2 rounded-md">
+                <div className=" mt-2 rounded-md">
                   <Link
                     to="/contact-us/contact-form"
                     className="block px-4 py-2 hover:bg-gray-200"
@@ -739,37 +739,7 @@ const Header = () => {
                 </div>
               )}
             </div>
-            {/* <div className="relative">
-              <button
-                onClick={() => toggleDropdown('loginRegistration')}
-                className="bg-logoColor text-white flex items-center gap-1 px-2 py-3 rounded-md focus:outline-none "
-              >
-                Login / Register
-                {openDropdown ? (
-                  <RiArrowUpSLine />
-                ) : (
-                  <RiArrowDownSLine />
-                )}{" "}
-              </button>
-              {openDropdown && (
-                <div className="bg-textColor mt-2 rounded-md">
-                  <Link
-                    to="/member-login"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Login
-                  </Link>
-                  <Link
-                    to="/registration"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Register
-                  </Link>
-                </div>
-              )}
-            </div> */}
+            
           </nav>
         </div>
       </div>
