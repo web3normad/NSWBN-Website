@@ -28,7 +28,7 @@ const Hero = () => {
       </div>
 
       {/* Animation Section */}
-      <div className="flex justify-center items-center w-full md:w-1/2 h-full mt-5 mb-10 md:mt-0">
+      <div className="flex justify-center items-center w-full md:w-1/2 h-full mt-5  md:mt-0">
         <Lottie animationData={animationData} className="w-full h-full object-contain" loop={true} />
       </div>
     </div>
