@@ -10,12 +10,11 @@ const Hero = () => {
 
   return (
   
-    <div className="flex flex-col md:flex-row items-center justify-between mt-24 w-full h-screen z-auto bg-blue-50 scroll-smooth overflow-y-hidden md:overflow-y-hidden  px-5 hover:overflow-y-none custom-scrollbar">
-
+<div className="flex flex-col md:flex-row items-center justify-between mt-28 md:mt-4 w-full h-screen z-auto bg-blue-50 scroll-smooth overflow-y-hidden md:overflow-y-hidden  px-5 hover:overflow-y-none">
       {/* Content Section */}
-      <div className="flex flex-col justify-center items-start z-2 mt-36 md:mt-0 md:w-1/2">
+      <div className="flex justify-center items-center z-2 pt-4  md:mt-0 md:w-1/2">
         <div className="px-4 md:px-12">
-          <h1 className="text-2xl sm:text-3xl text-logoColor md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+          <h1 className="text-2xl sm:text-3xl text-logoColor  md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
             Overview of NSWBN
           </h1>
           <p className="text-base sm:text-lg md:text-lg text-cyan-800 mb-4 sm:mb-6">
@@ -28,7 +27,7 @@ const Hero = () => {
       </div>
 
       {/* Animation Section */}
-      <div className="flex justify-center items-center w-full md:w-1/2 h-full mt-5  md:mt-0">
+      <div className="hidden mb-80 md:block md:w-1/2 h-full">
         <Lottie animationData={animationData} className="w-full h-full object-contain" loop={true} />
       </div>
     </div>
