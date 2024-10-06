@@ -10,7 +10,7 @@ const Hero = () => {
 
   return (
   
-    <div className="flex flex-col md:flex-row items-center justify-between mt-16 w-full h-screen z-auto bg-blue-50 scroll-smooth overflow-y-hidden md:overflow-y-hidden  px-5 hover:overflow-y-none custom-scrollbar">
+    <div className="flex flex-col md:flex-row items-center justify-between mt-24 w-full h-screen z-auto bg-blue-50 scroll-smooth overflow-y-hidden md:overflow-y-hidden  px-5 hover:overflow-y-none custom-scrollbar">
 
       {/* Content Section */}
       <div className="flex flex-col justify-center items-start z-2 mt-36 md:mt-0 md:w-1/2">
