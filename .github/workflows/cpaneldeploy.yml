@@ -1,39 +1,29 @@
 name: Deploy NSWBN Website to cPanel
-
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
-  FTP-Deploy-Action:
-    name: 🎉 Deploy
+  Deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: 🚚 Get latest code
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 2
-
-      - name: 🛠 Set up Node.js
-        uses: actions/setup-node@v3
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
           node-version: '20'
-
-      - name: 📦 Install dependencies
-        working-directory: ./
-        run: npm install
-
-      - name: 🔨 Build the React.js app
-        working-directory: ./
-        run: npm run build
-
-      - name: 📂 Sync folders and files to the server via FTP
+          
+      - name: Install & Build
+        run: |
+          npm install
+          npm run build
+        
+      - name: Deploy to cPanel
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
-          server: ${{ vars.FTP_SERVER }}
-          username: ${{ vars.FTP_USERNAME }} 
-          password: ${{ vars.FTP_PASSWORD }} 
-          server-dir: /home2/nswbnorg/public_html/ 
-          local-dir: './dist/' 
+          server: ftp.nswbn.org
+          username: nswbnorg
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftp
+          port: 21
+          server-dir: /home2/nswbnorg/public_html/
+          local-dir: ./dist/
