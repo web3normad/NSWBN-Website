@@ -1,0 +1,34 @@
+name: Deploy to cPanel
+
+on:
+  push:
+    branches:
+      - main  
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up SSH
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -H 131.153.147.162 >> ~/.ssh/known_hosts
+
+    - name: Install Node.js and Dependencies
+      uses: actions/setup-node@v3
+      with:
+        node-version: 23  
+    - run: npm install
+
+    - name: Build the React App
+      run: npm run build
+
+    - name: Deploy to cPanel
+      run: |
+        rsync -avz --delete build/ nswbnorg@131.153.147.162:/home2/nswbnorg/public_html/
