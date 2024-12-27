@@ -1,254 +1,254 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Volunteer = () => {
+  const [formData, setFormData] = useState({
+    personalInfo: {},
+    employmentInfo: {},
+    volunteerExperience: '',
+    motivation: '',
+    skills: [],
+    volunteerPreferences: [],
+    availability: {},
+    references: [
+      { name: '', relationship: '', contactNumber: '', email: '' },
+      { name: '', relationship: '', contactNumber: '', email: '' }
+    ],
+    declaration: false
+  });
+
+  const skillsOptions = [
+    'Counseling and psycho-social skills',
+    'Maritime background/experience',
+    'Proficiency in English language',
+    'Communication and Interpersonal Skills',
+    'Listening Skills'
+  ];
+
+  const volunteerPreferencesOptions = [
+    'Visiting seafarers in port',
+    'Assisting seafarers with communication',
+    'Organizing events and activities',
+    'Advocacy and awareness-raising',
+    'Administrative support',
+    'All areas of NSWBN activities'
+  ];
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Add form submission logic
+    console.log(formData);
+  };
+
   return (
-    <div className="px-6 py-32 h-full sm:px-8 md:px-16 lg:px-24">
-      <div>
-        <h1 className="text-3xl font-bold mb-4">Volunteer Opportunities</h1>
-        <p className="text-lg mb-6">
-          Volunteering with NSWBN offers a fulfilling opportunity to directly contribute to the welfare of seafarers. Our volunteer programs are designed to engage community members and professionals in meaningful activities that support our mission.
-        </p>
-        
-        {/* Volunteer Roles Section */}
-        <div className="mb-8">
-          <h2 className="text-xl font-semibold mb-2">Volunteer Roles:</h2>
-          <ul className="list-disc list-inside pl-4">
-            <li>Ship Visits: Engage in regular visits to ships to provide support and services to seafarers, including health checks, counseling, and recreational activities.</li>
-            <li>Event Organization: Assist in the planning and execution of NSWBN events, such as training workshops, seminars, and community outreach programs.</li>
-            <li>Administrative Support: Provide administrative assistance in our offices, helping with data entry, correspondence, and project management.</li>
-          </ul>
-        </div>
+    <div className="bg-gray-50 min-h-screen py-32">
+      <div className="container mx-auto px-4 lg:px-8">
+        {/* Hero Section */}
+        <section className=" p-8 mb-10">
+          <h1 className="text-4xl font-bold text-primary-100 mb-6 text-center">Volunteer with NSWBN</h1>
+          <p className="text-lg text-gray-700 mb-4">
+            Volunteering with the National Seafarers' Welfare Board (NSWB) offers a meaningful opportunity to directly contribute to the welfare of seafarers. Our volunteer programs are designed to engage community members in supporting our mission.
+          </p>
+          
+          {/* Volunteer Opportunities */}
+          <div className="grid md:grid-cols-3 gap-6 mt-8">
+            <div className="bg-teal-50 p-6 rounded-lg">
+              <h3 className="font-bold text-xl text-primary-100 mb-4">Ship Visits</h3>
+              <p>Engage in regular visits to ships to provide support and services to seafarers.</p>
+            </div>
+            <div className="bg-teal-50 p-6 rounded-lg">
+              <h3 className="font-bold text-xl text-primary-100 mb-4">Event Organization</h3>
+              <p>Assist in planning and executing workshops, seminars, and community outreach programs.</p>
+            </div>
+            <div className="bg-teal-50 p-6 rounded-lg">
+              <h3 className="font-bold text-xl text-primary-100 mb-4">Administrative Support</h3>
+              <p>Provide assistance in our offices with data entry, correspondence, and project management.</p>
+            </div>
+          </div>
+        </section>
 
-        {/* How to Volunteer Section */}
-        <div className="mb-8">
-          <h2 className="text-xl font-semibold mb-2">How to Volunteer:</h2>
-          <ul className="list-disc list-inside pl-4">
-            <li>Application Process: Interested individuals can apply by completing a volunteer application form available here <a href="#" className="text-teal-600 underline" target="_blank" rel="noopener noreferrer">[link]</a>.</li>
-            <li>Orientation and Training: Volunteers will undergo an orientation session and receive training to prepare them for their roles.</li>
-            <li>Commitment: Volunteers are encouraged to commit a certain number of hours per month, depending on their availability and the needs of NSWBN.</li>
-          </ul>
-        </div>
-
-        <div>
-        <h1 className="text-3xl font-bold mb-4">Volunteer Recruitment Form</h1>
-        <p className="text-lg mb-6">
-          Thank you for your interest in volunteering with the National Seafarers' Welfare Board (NSWB) and its constituent Seafarers' Port Welfare Committees (SPWCs) as Port Welfare Volunteers. Your dedication and commitment to supporting the welfare of seafarers are highly valued. Please complete the following form:
-        </p>
-        
         {/* Volunteer Application Form */}
-        <div className="mt-8">
-          <h2 className="text-xl font-semibold mb-4">Volunteer Application Form</h2>
-          <form className="space-y-4">
-
-            {/* Personal Information */}
-            <h3 className="text-lg font-semibold">Personal Information</h3>
-            <div className="flex flex-wrap">
-              <div className="w-full md:w-1/2 mx-2 mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2">Full Name</label>
-                <input type="text" placeholder="Full Name" className="bg-white p-2 border border-gray-300 rounded outline-none w-full" />
-              </div>
-              <div className="w-full md:w-1/2 mx-2 mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2">Gender</label>
-                <input type="text" placeholder="Gender" className="bg-white p-2 border border-gray-300 rounded outline-none w-full" />
-              </div>
-              <div className="w-full md:w-1/2 mx-2 mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2">Date of Birth</label>
-                <input type="date" placeholder="Date of Birth" className="bg-white p-2 border border-gray-300 rounded outline-none w-full" />
-              </div>
-              <div className="w-full md:w-1/2 mx-2 mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2">Nationality</label>
-                <input type="text" placeholder="Nationality" className="bg-white p-2 border border-gray-300 rounded outline-none w-full" />
-              </div>
-              <div className="w-full md:w-1/2 mx-2 mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2">Contact Number(s)</label>
-                <input type="text" placeholder="Contact Number" className="bg-white p-2 border border-gray-300 rounded outline-none w-full" />
-              </div>
-              <div className="w-full md:w-1/2 mx-2 mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2">Email Address</label>
-                <input type="email" placeholder="Email" className="bg-white p-2 border border-gray-300 rounded outline-none w-full" />
-              </div>
-              <div className="w-full mx-2 mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2">Address</label>
-                <textarea className="bg-white p-2 border border-gray-300 rounded outline-none w-1/2 h-24 resize-none" placeholder="Your address"></textarea>
-              </div>
-            </div>
-
-            {/* Employment Information */}
-            <h3 className="text-lg font-semibold">Employment Information</h3>
-            <div className="flex flex-wrap">
-              <div className="w-full md:w-1/2 mx-2 mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2">Current Employer/Organization</label>
-                <input type="text" placeholder="Employer/Organization" className="bg-white p-2 border border-gray-300 rounded outline-none w-full" />
-              </div>
-              <div className="w-full md:w-1/2 mx-2 mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2">Job Position</label>
-                <input type="text" placeholder="Job Position" className="bg-white p-2 border border-gray-300 rounded outline-none w-full" />
-              </div>
-              <div className="w-full mx-2 mb-4">
-                <label className="block text-gray-700 text-sm font-bold mb-2">Industry/Field</label>
-                <input type="text" placeholder="Industry/Field" className="bg-white p-2 border border-gray-300 rounded outline-none w-1/2" />
-              </div>
-            </div>
-
-           {/* Volunteer Experience */}
-          <h2 className="text-xl font-bold mb-4 text-teal-600">Volunteer Experience</h2>
-          <div>
-            <label className="block text-sm font-bold mb-1">Have you previously volunteered in any capacity? If yes, please provide details:</label>
-            <textarea className="w-full border rounded px-3 py-2"></textarea>
-          </div>
-          <div>
-            <label className="block text-sm font-bold mb-1">Why are you interested in volunteering with the NSWB and SPWCs? What motivates you to support seafarers' welfare?</label>
-            <textarea className="w-full border rounded px-3 py-2"></textarea>
-          </div>
-            
-            {/* Motivation */}
-            <h3 className="text-lg font-semibold">Motivation</h3>
-            <div className="mx-2 mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2">Why are you interested in volunteering with the NSWB and SPWCs? What motivates you to support seafarers' welfare?</label>
-              <textarea className="bg-white p-2 border border-gray-300 rounded outline-none w-full h-24 resize-none" placeholder="What motivates you?"></textarea>
-            </div>
-
-           {/* Skills and Expertise */}
-           <h2 className="text-xl font-bold mb-4 text-teal-600">Skills and Expertise</h2>
-          <div>
-            <label className="block text-sm font-bold mb-1">The following are relevant skills or expertise for this role (tick any you are proficient in):</label>
-            <div className="flex flex-wrap gap-4">
-              <div>
-                <input type="checkbox" /> Counseling and psycho-social skills
-              </div>
-              <div>
-                <input type="checkbox" /> Maritime background/experience
-              </div>
-              <div>
-                <input type="checkbox" /> Proficiency in English language
-              </div>
-              <div>
-                <input type="checkbox" /> Communication and Interpersonal Skills
-              </div>
-              <div>
-                <input type="checkbox" /> Listening Skills
-              </div>
-            </div>
-          </div>
-
-          {/* Volunteer Preferences */}
-          <h2 className="text-xl font-bold mb-4 text-teal-600">Volunteer Preferences</h2>
-          <div>
-            <label className="block text-sm font-bold mb-1">Select areas you are interested in volunteering:</label>
-            <div className="flex flex-wrap gap-4">
-              <div>
-                <input type="checkbox" /> Visiting seafarers in port
-              </div>
-              <div>
-                <input type="checkbox" /> Assisting seafarers with communication
-              </div>
-              <div>
-                <input type="checkbox" /> Organizing events and activities
-              </div>
-              <div>
-                <input type="checkbox" /> Advocacy and awareness-raising
-              </div>
-              <div>
-                <input type="checkbox" /> Administrative support
-              </div>
-              <div>
-                <input type="checkbox" /> All areas of NSWBN activities
-              </div>
-            </div>
-          </div>
-
-            {/* Availability */}
-            <h3 className="text-lg font-semibold">Availability</h3>
-            <div className="mx-2 mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2">Will you be able to volunteer for an average of 8 hours (or more) per week?</label>
-              <input type="text" className="bg-white p-2 border border-gray-300 rounded outline-none w-1/2" placeholder="Yes/No" />
-            </div>
-            <div className="mx-2 mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2">Are you available during weekends or public holidays?</label>
-              <input type="text" className="bg-white p-2 border border-gray-300 rounded outline-none w-1/2" placeholder="Yes/No" />
-            </div>
-
-            {/* Proximity */}
-            <h3 className="text-lg font-semibold">Proximity</h3>
-            <div className="mx-2 mb-4">
-              <label className="block text-gray-700 text-sm font-bold mb-2">Do you live or work within reasonable distance of seaports in Nigeria?</label>
-              <input type="text" className="bg-white p-2 border border-gray-300 rounded outline-none w-1/2" placeholder="Yes/No" />
-            </div>
-
-           {/* References */}
-<h3 className="text-lg font-semibold">References</h3>
-<div className="flex flex-wrap">
-  {/* Reference 1 */}
-  <div className="w-full space-y-2 md:w-1/2 mx-2 mb-4">
-    <label className="block text-gray-700 text-sm font-bold mb-2">Reference Name (1)</label>
-    <input type="text" className="bg-white p-2 border border-gray-300 rounded outline-none w-full" placeholder="Reference Name" />
-    <label className="block text-gray-700 text-sm font-bold mb-2">Relationship</label>
-    <input type="text" className="bg-white p-2 border border-gray-300 rounded outline-none w-full" placeholder="Relationship" />
-    <label className="block text-gray-700 text-sm font-bold mb-2">Contact Number</label>
-    <input type="text" className="bg-white p-2 border border-gray-300 rounded outline-none w-full" placeholder="Contact Number" />
-    <label className="block text-gray-700 text-sm font-bold mb-2">Email Address</label>
-    <input type="email" className="bg-white p-2 border border-gray-300 rounded outline-none w-full" placeholder="Email Address" />
-  </div>
-
- {/* Divider Line */}
- <div className="flex justify-start ml-3 my-4 w-full">
-    <div className="w-1/2">
-      <hr className="border-t-2 border-gray-500" />
-    </div>
-  </div>
-
-  {/* Reference 2 */}
-  <div className="w-full space-y-2 md:w-1/2 mx-2 mb-4">
-    <label className="block text-gray-700 text-sm font-bold mb-2">Reference Name (2)</label>
-    <input type="text" className="bg-white p-2 border border-gray-300 rounded outline-none w-full" placeholder="Reference Name" />
-    <label className="block text-gray-700 text-sm font-bold mb-2">Relationship</label>
-    <input type="text" className="bg-white p-2 border border-gray-300 rounded outline-none w-full" placeholder="Relationship" />
-    <label className="block text-gray-700 text-sm font-bold mb-2">Contact Number</label>
-    <input type="text" className="bg-white p-2 border border-gray-300 rounded outline-none w-full" placeholder="Contact Number" />
-    <label className="block text-gray-700 text-sm font-bold mb-2">Email Address</label>
-    <input type="email" className="bg-white p-2 border border-gray-300 rounded outline-none w-full" placeholder="Email Address" />
-  </div>
-</div>
-
-
-            {/* Declaration */}
-            <h3 className="text-lg font-semibold">Declaration</h3>
-            <div className="mx-2 mb-4">
-              <p className="mb-2">
-                I hereby declare that all information provided in this form is true and accurate to the best of my knowledge. I understand that any false statement may result in the termination of my volunteer position.
-              </p>
-              <div className="flex flex-wrap">
-                <div className="w-full md:w-1/2 mx-2 mb-4">
-                  <label className="block text-gray-700 text-sm font-bold mb-2">Signature</label>
-                  <input type="text" className="bg-white p-2 border border-gray-300 rounded outline-none w-full" placeholder="Your name" />
+        <section className="bg-white shadow-lg rounded-lg p-8">
+          <form onSubmit={handleSubmit} className="space-y-8">
+            {/* Personal Information Section */}
+            <div className="border-b pb-8">
+              <h2 className="text-2xl font-semibold text-primary-q00 mb-6">Personal Information</h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-gray-700 font-medium mb-2">Full Name</label>
+                  <input 
+                    type="text" 
+                    className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+                    placeholder="Your full name"
+                  />
                 </div>
-                <div className="w-full md:w-1/2 mx-2 mb-4">
-                  <label className="block text-gray-700 text-sm font-bold mb-2">Date</label>
-                  <input type="date" className="bg-white p-2 border border-gray-300 rounded outline-none w-full" />
+                <div>
+                  <label className="block text-gray-700 font-medium mb-2">Email Address</label>
+                  <input 
+                    type="email" 
+                    className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+                    placeholder="your.email@example.com"
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-700 font-medium mb-2">Date of Birth</label>
+                  <input 
+                    type="date" 
+                    className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-700 font-medium mb-2">Contact Number</label>
+                  <input 
+                    type="tel" 
+                    className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+                    placeholder="Your contact number"
+                  />
                 </div>
               </div>
             </div>
 
-            {/* Submit Button */}
-            <div className="flex p-2 mt-4">
-              <button
-                type="submit"
-                className="text-base ml-2 hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer hover:bg-teal-600 bg-teal-600 text-teal-100 border duration-200 ease-in-out border-teal-600 transition"
+            {/* Motivation Section */}
+            <div className="border-b pb-8">
+              <h2 className="text-2xl font-semibold text-primary-100 mb-6">Your Motivation</h2>
+              <div>
+                <label className="block text-gray-700 font-medium mb-2">
+                  Why are you interested in volunteering with NSWB?
+                </label>
+                <textarea 
+                  className="w-full px-4 py-2 border rounded-md h-32 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  placeholder="Share your motivation for supporting seafarers' welfare"
+                ></textarea>
+              </div>
+            </div>
+
+            {/* Skills and Preferences */}
+            <div className="border-b pb-8">
+              <h2 className="text-2xl font-semibold text-primary-100 mb-6">Skills and Preferences</h2>
+              <div>
+                <h3 className="font-medium text-gray-700 mb-4">Select Your Skills</h3>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {skillsOptions.map((skill, index) => (
+                    <div key={index} className="flex items-center">
+                      <input 
+                        type="checkbox" 
+                        id={`skill-${index}`}
+                        className="mr-2 text-teal-600 focus:ring-teal-500"
+                      />
+                      <label htmlFor={`skill-${index}`} className="text-gray-700">
+                        {skill}
+                      </label>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="mt-6">
+                <h3 className="font-medium text-gray-700 mb-4">Volunteer Area Preferences</h3>
+                <div className="grid md:grid-cols-2 gap-4">
+                  {volunteerPreferencesOptions.map((preference, index) => (
+                    <div key={index} className="flex items-center">
+                      <input 
+                        type="checkbox" 
+                        id={`preference-${index}`}
+                        className="mr-2 text-teal-600 focus:ring-teal-500"
+                      />
+                      <label htmlFor={`preference-${index}`} className="text-gray-700">
+                        {preference}
+                      </label>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* References Section */}
+            <div className="border-b pb-8">
+              <h2 className="text-2xl font-semibold text-primary-100 mb-6">References</h2>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <h3 className="font-medium text-gray-700 mb-4">Reference 1</h3>
+                  <div className="space-y-4">
+                    <input 
+                      type="text" 
+                      placeholder="Name"
+                      className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+                    />
+                    <input 
+                      type="text" 
+                      placeholder="Relationship"
+                      className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+                    />
+                    <input 
+                      type="tel" 
+                      placeholder="Contact Number"
+                      className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="font-medium text-gray-700 mb-4">Reference 2</h3>
+                  <div className="space-y-4">
+                    <input 
+                      type="text" 
+                      placeholder="Name"
+                      className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+                    />
+                    <input 
+                      type="text" 
+                      placeholder="Relationship"
+                      className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+                    />
+                    <input 
+                      type="tel" 
+                      placeholder="Contact Number"
+                      className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Declaration Section */}
+            <div>
+              <div className="flex items-center mb-6">
+                <input 
+                  type="checkbox" 
+                  id="declaration"
+                  className="mr-3 text-primary-100 focus:ring-teal-500"
+                />
+                <label htmlFor="declaration" className="text-gray-700">
+                  I declare that the information provided is true and accurate
+                </label>
+              </div>
+
+              {/* Submit Button */}
+              <button 
+                type="submit" 
+                className="w-full bg-primary-100 text-white py-3 rounded-md hover:bg-teal-700 transition duration-300 ease-in-out"
               >
-                Submit
+                Submit Volunteer Application
               </button>
             </div>
           </form>
-          <p className="text-base mt-6">
-            Please submit this form to <a href="mailto:nswbnigeria@gmail.com" className="text-teal-700 font-bold">nswbnigeria@gmail.com</a> as soon as possible. We will review your application and get in touch with you regarding the next steps in the volunteer selection process. Thank you for your interest in volunteering with the NSWB and SPWCs. Your support will make a meaningful difference in the lives of seafarers, and we look forward to working with you to promote their welfare.
+        </section>
+
+        {/* Contact Information */}
+        <section className="mt-10 text-center">
+          <p className="text-gray-600">
+            For inquiries, please contact us at{' '}
+            <a 
+              href="mailto:nswbnigeria@gmail.com" 
+              className="text-teal-700 font-bold hover:underline"
+            >
+              nswbnigeria@gmail.com
+            </a>{' '}
+            or call Dr. Kuje at{' '}
+            <span className="text-primary-100 font-bold">
+              08060616034
+            </span>
           </p>
-          <p className="text-base">
-            For inquiries or further information, please contact us at <a href="mailto:nswbnigeria@gmail.com" className="text-teal-700 font-bold">nswbnigeria@gmail.com</a> or reach out to Dr. Kuje on <span className="text-teal-700 font-bold">08060616034</span>.
-          </p>
-        </div>
-        </div>
+        </section>
       </div>
-      </div>
+    </div>
   );
 };
 

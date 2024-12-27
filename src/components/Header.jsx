@@ -40,7 +40,7 @@ const Header = () => {
         : "bg-white"
     }`}
   >
-      <div className="flex px-6 py-4 items-center">
+      <div className="flex px-16 py-4 items-center">
         {/* Logo on the left */}
 
         <div className="flex items-center">
@@ -68,8 +68,8 @@ const Header = () => {
 
         {/* Navigation in the center for desktop */}
         <div className="hidden md:flex flex-col gap-4 md:flex-row md:flex-1 md:justify-center items-center space-y-4 md:space-y-0 md:space-x-2">
-          <nav className="flex flex-col items-center gap-2 md:flex-row space-y-5 md:space-y-0 md:space-x-2 px-4 text-nowrap text-sm font-semibold">
-          <div className="relative">
+          <nav className="flex flex-col items-center gap-10 md:flex-row space-y-5 md:space-y-0 md:space-x-2 px-4 text-nowrap text-md font-semibold">
+          <div className="relative hover:text-primary-100">
               <Link to="/home-page">
               <button
                 onClick={() => toggleDropdown('seafarersResources')}
@@ -81,12 +81,13 @@ const Header = () => {
               </Link>
             </div>
             
-            <div className="relative">
+            {/* About */}
+            <div className="relative hover:text-primary-100">
               <button
                 onClick={() => toggleDropdown("aboutUs")}
                 className="flex items-center gap-1 focus:outline-none hover:text-logoColor"
               >
-                About Us
+                About
                 {openDropdown === "aboutUs" ? (
                   <RiArrowUpSLine />
                 ) : (
@@ -128,78 +129,61 @@ const Header = () => {
               )}
             </div>
 
-            <div className="relative">
-              <Link to="/services">
+
+             {/* How we Help */}
+               <div className="relative hover:text-primary-100">
               <button
-                onClick={() => toggleDropdown('services')}
+                onClick={() => toggleDropdown('help')}
                 className=" flex items-center gap-1 focus:outline-none hover:text-logoColor"
               >
-                Services
-              </button>
-              </Link>
-            </div>
-            <div className="relative">
-              <Link to="/seafarers-resources">
-              <button
-                onClick={() => toggleDropdown('seafarersResources')}
-                className=" flex items-center gap-1 focus:outline-none hover:text-logoColor"
-              >
-                Seafarers Resources
-                
-              </button>
-              </Link>
-            </div>
-            <div className="relative">
-              <button
-                onClick={() => toggleDropdown('projectsInitiatives')}
-                className=" flex items-center gap-1 focus:outline-none hover:text-logoColor"
-              >
-                Projects & Initiatives
-                {openDropdown === 'projectsInitiatives'  ? (
+               How We Help
+                {openDropdown === 'help' ? (
                   <RiArrowUpSLine />
                 ) : (
                   <RiArrowDownSLine />
                 )}{" "}
               </button>
-              {openDropdown === 'projectsInitiatives'  && (
+              {openDropdown === 'help' && (
                 <div className="absolute bg-primary-100 text-black shadow-lg mt-5 rounded-md w-60">
-                  <Link
-                    to="/projects-initiatives/current-projects"
+                  <Link to="/services"
                     className="block px-4 py-2 hover:bg-gray-200"
                     onClick={handleLinkClick}
                   >
-                    Current Projects
+                  Services
+                  </Link>
+
+               
+                    <Link to="/seafarers-resources"
+                    className="block px-4 py-2 hover:bg-gray-200"
+                    onClick={handleLinkClick}
+                  >
+                     Seafarers Resources
                   </Link>
                   <Link
-                    to="/projects-initiatives/past-projects"
+                    to="/seafarers-resources/employment-opportunities"
                     className="block px-4 py-2 hover:bg-gray-200"
                     onClick={handleLinkClick}
                   >
-                    Past Projects
+                    Employment Opportunities
                   </Link>
                   <Link
-                    to="/projects-initiatives/success-stories"
+                    to="/seafarers-resources/education-training"
                     className="block px-4 py-2 hover:bg-gray-200"
                     onClick={handleLinkClick}
                   >
-                    Success Stories
-                  </Link>
-                  <Link
-                    to="/projects-initiatives/how-to-get-involved"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    How to Get Involved
+                    Education and Training
                   </Link>
                 </div>
               )}
             </div>
-            <div className="relative">
+
+            {/* News */}
+            <div className="relative hover:text-primary-100">
               <button
                 onClick={() => toggleDropdown('newsEvents')}
                 className=" flex items-center gap-1 focus:outline-none hover:text-logoColor"
               >
-                News & Events
+                News
                 {openDropdown === 'newsEvents'  ? (
                   <RiArrowUpSLine />
                 ) : (
@@ -239,12 +223,14 @@ const Header = () => {
                 </div>
               )}
             </div>
-            <div className="relative">
+
+              {/* Get Invovled */}
+            <div className="relative hover:text-primary-100">
               <button
                 onClick={() => toggleDropdown('partnerships')}
                 className=" flex items-center gap-1 focus:outline-none hover:text-logoColor"
               >
-                Partnerships
+               Get Involved
                 {openDropdown === 'partnerships' ? (
                   <RiArrowUpSLine />
                 ) : (
@@ -253,6 +239,14 @@ const Header = () => {
               </button>
               {openDropdown === 'partnerships' && (
                 <div className="absolute bg-primary-100 text-black shadow-lg mt-5 rounded-md w-60">
+                   <Link
+                    to="/projects-initiatives/how-to-get-involved"
+                    className="block px-4 py-2 hover:bg-gray-200"
+                    onClick={handleLinkClick}
+                  >
+                    How to Get Involved
+                  </Link>
+
                   <Link
                     to="/partnerships/our-partners"
                     className="block px-4 py-2 hover:bg-gray-200"
@@ -291,17 +285,10 @@ const Header = () => {
                 </div>
               )}
             </div>
-            <div className="relative">
-              <Link to="research-publications">
-              <button
-                onClick={() => toggleDropdown('researchPublications')}
-                className=" flex items-center gap-1 focus:outline-none hover:text-logoColor"
-              >
-                Research & Publications
-              </button>
-              </Link>
-            </div>
-            <div className="relative">
+
+           
+
+            <div className="relative hover:text-primary-100">
               <button
                 onClick={() => toggleDropdown('contactUs')}
                 className=" flex items-center gap-1 focus:outline-none hover:text-logoColor"
@@ -337,33 +324,15 @@ const Header = () => {
               )}
             </div>
 
-            {/* <div className="relative">
+            <div className="relative hover:text-primary-100">
               <button
                 onClick={() => toggleDropdown('auth')}
-                className="bg-primary-100 text-white flex items-center gap-1 px-8 py-2 rounded-md focus:outline-none "
+                className="bg-primary-100 text-white flex items-center gap-1 px-8 py-2 rounded-sm focus:outline-none "
               >
-               Signup
+               Support Us
                
               </button>
-              {openDropdown === 'auth' && (
-                <div className="absolute bg-primary-100 text-black shadow-lg mt-5 rounded-md w-36">
-                  <Link
-                    to="/auth/member-login"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Login
-                  </Link>
-                  <Link
-                    to="/auth/registration"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Register
-                  </Link>
-                </div>
-              )}
-            </div> */}
+            </div>
           </nav>
         </div>
 
@@ -425,54 +394,7 @@ const Header = () => {
                 </div>
               )}
             </div>
-            <div className="relative">
-              <button
-                onClick={() => toggleDropdown('services')}
-                className="text-white flex items-center gap-2 focus:outline-none hover:text-gray-200"
-              >
-                Services
-                {openDropdown ? <RiArrowUpSLine /> : <RiArrowDownSLine />}{" "}
-              </button>
-              {openDropdown && (
-                <div className=" mt-2 rounded-md">
-                  <Link
-                    to="/services/welfare-services"
-                    className="block px-4 py-2 hover:bg-gray-600"
-                    onClick={handleLinkClick}
-                  >
-                    Welfare Services
-                  </Link>
-                  <Link
-                    to="/services/legal-assistance"
-                    className="block px-4 py-2 hover:bg-gray-600"
-                    onClick={handleLinkClick}
-                  >
-                    Legal Assistance
-                  </Link>
-                  <Link
-                    to="/services/mental-health"
-                    className="block px-4 py-2 hover:bg-gray-600"
-                    onClick={handleLinkClick}
-                  >
-                    Mental Health
-                  </Link>
-                  <Link
-                    to="/services/training-development"
-                    className="block px-4 py-2 hover:bg-gray-600"
-                    onClick={handleLinkClick}
-                  >
-                    Training and Development
-                  </Link>
-                  <Link
-                    to="/services/emergency-assistance"
-                    className="block px-4 py-2 hover:bg-gray-600"
-                    onClick={handleLinkClick}
-                  >
-                    Emergency Assistance
-                  </Link>
-                </div>
-              )}
-            </div>
+           
             <div className="relative">
               <button
                 onClick={() => toggleDropdown('seafarersResources')}
@@ -527,55 +449,10 @@ const Header = () => {
             </div>
             <div className="relative">
               <button
-                onClick={() => toggleDropdown('projectsInitiatives')}
-                className="text-white flex items-center gap-2 focus:outline-none hover:text-gray-200"
-              >
-                Projects and Initiatives
-                {openDropdown? (
-                  <RiArrowUpSLine />
-                ) : (
-                  <RiArrowDownSLine />
-                )}{" "}
-              </button>
-              {openDropdown && (
-                <div className=" mt-2 rounded-md">
-                  <Link
-                    to="/projects-initiatives/current-projects"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Current Projects
-                  </Link>
-                  <Link
-                    to="/projects-initiatives/past-projects"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Past Projects
-                  </Link>
-                  <Link
-                    to="/projects-initiatives/success-stories"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Success Stories
-                  </Link>
-                  <Link
-                    to="/projects-initiatives/how-to-get-involved"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    How to Get Involved
-                  </Link>
-                </div>
-              )}
-            </div>
-            <div className="relative">
-              <button
                 onClick={() => toggleDropdown('newsEvents')}
                 className="text-white flex items-center gap-2 focus:outline-none hover:text-gray-200"
               >
-                News and Events
+                News
                 {openDropdown ? (
                   <RiArrowUpSLine />
                 ) : (
@@ -660,44 +537,7 @@ const Header = () => {
                 </div>
               )}
             </div>
-            <div className="relative">
-              <button
-                onClick={() => toggleDropdown('researchPublications')}
-                className="text-white flex items-center gap-2 focus:outline-none hover:text-gray-200"
-              >
-                Research & Publication
-                {openDropdown ? (
-                  <RiArrowUpSLine />
-                ) : (
-                  <RiArrowDownSLine />
-                )}{" "}
-              </button>
-              {openDropdown && (
-                <div className="mt-2 rounded-md">
-                  <Link
-                    to="/research-publications/research-papers"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Research Papers
-                  </Link>
-                  <Link
-                    to="/research-publications/case-studies"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Case Studies
-                  </Link>
-                  <Link
-                    to="/research-publications/annual-reports"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Annual Reports
-                  </Link>
-                </div>
-              )}
-            </div>
+            
             <div className="relative">
               <button
                 onClick={() => toggleDropdown('contactUs')}
@@ -721,13 +561,6 @@ const Header = () => {
                     onClick={handleLinkClick}
                   >
                     Office Locations
-                  </Link>
-                  <Link
-                    to="/contact-us/feedback-suggestions"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Feedback and Suggestions
                   </Link>
                   <Link
                     to="/faqs"
