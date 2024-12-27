@@ -3,4 +3,4 @@ deployment:
     - export DEPLOYPATH=/home2/nswbnorg/public_html
     - /usr/local/bin/node /usr/local/bin/npm install
     - /usr/local/bin/node /usr/local/bin/npm run build
-    - rsync -a build/ $DEPLOYPATH/
+    - curl -T ./build/* ftp://ftp.nswbn.org/$DEPLOYPATH/ --user $FTP_USERNAME:$FTP_PASSWORD
