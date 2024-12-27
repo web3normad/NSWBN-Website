@@ -4,6 +4,7 @@ import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import Logo from "../assets/images/NSWBN_logo.png";
 
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);

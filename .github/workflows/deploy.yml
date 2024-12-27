@@ -1,34 +1,39 @@
-name: Deploy to cPanel
+name: Deploy NSWBN Website to cPanel
 
 on:
   push:
     branches:
-      - main  
+      - main
 
 jobs:
-  deploy:
+  FTP-Deploy-Action:
+    name: 🎉 Deploy
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
 
-    - name: Set up SSH
-      run: |
-        mkdir -p ~/.ssh
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan -H 131.153.147.162 >> ~/.ssh/known_hosts
+      - name: 🛠 Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
 
-    - name: Install Node.js and Dependencies
-      uses: actions/setup-node@v3
-      with:
-        node-version: 23  
-    - run: npm install
+      - name: 📦 Install dependencies
+        working-directory: ./
+        run: npm install
 
-    - name: Build the React App
-      run: npm run build
+      - name: 🔨 Build the React.js app
+        working-directory: ./
+        run: npm run build
 
-    - name: Deploy to cPanel
-      run: |
-        rsync -avz --delete build/ nswbnorg@131.153.147.162:/home2/nswbnorg/public_html/
+      - name: 📂 Sync folders and files to the server
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        with:
+          server:  ${{ secrets.FTP_SERVER }}   
+          username: ${{ secrets.FTP_USERNAME }}  
+          password: ${{ secrets.FTP_PASSWORD }} 
+          server-dir: /home2/nswbnorg/public_html/  
+          local-dir: './build/' 
