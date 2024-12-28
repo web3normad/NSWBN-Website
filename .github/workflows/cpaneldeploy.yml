@@ -17,13 +17,12 @@ jobs:
           npm install
           npm run build
         
-      - name: Deploy to cPanel
+     
+      - name: 📂 Sync folders and files to the server
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
-          server: ftp.nswbn.org
-          username: nswbnorg
-          password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftp
-          port: 21
-          server-dir: /home2/nswbnorg/public_html/
-          local-dir: ./dist/
+            server: ${{ vars.FTP_SERVER }}
+            username: ${{ vars.FTP_USERNAME }}
+            password: ${{ vars.FTP_PASSWORD }}
+            server-dir: /home2/nswbnorg/public_html/
+            local-dir: './dist/'
