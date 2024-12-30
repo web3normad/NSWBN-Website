@@ -15,7 +15,7 @@ const Hero = () => {
     <div className="relative min-h-screen bg-gradient-to-br from-blue-50 via-blue-50 to-white">
       <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
       
-      <div className="relative px-6 lg:px-12 mx-auto flex flex-col md:flex-row items-center justify-between pt-20 md:pt-0 h-screen">
+      <div className="relative px-6 lg:px-12 mx-10 flex flex-col md:flex-row items-center justify-between pt-20 md:pt-0 h-screen">
         {/* Content Section */}
         <div className="md:w-1/2 space-y-6 md:pr-12">
           <div className="space-y-2">
@@ -28,13 +28,14 @@ const Hero = () => {
           </div>
 
           <div className="prose prose-lg text-gray-600 space-y-4">
-            <p>
-              The National Seafarers Welfare Board of Nigeria (NSWBN) is a non-profit organization founded in 2003, dedicated to coordinating and supporting shore-based welfare facilities for all seafarers.
-            </p>
-            <p>
-              Our commitment aligns with the Shore-Based Welfare Facilities mandate of Regulation 4.4, Standard A4, under the ILO Maritime Labour Convention, 2006 (MLC, 2006).
-            </p>
-          </div>
+  <p>
+    The National Seafarers Welfare Board of Nigeria (NSWBN) is a non-profit organization founded in 2003 and formally registered as incorporated trustees with the Corporate Affairs Commission (CAC) on March 30th, 2007. The NSWBN is dedicated to coordinating and supporting shore-based welfare facilities and services for seafarers, irrespective of nationality, race, ethnicity, religion, or creed. This commitment aligns with the Shore-Based Welfare Facilities mandate of Regulation 4.4, Standard A4, as amended, under the International Labour Organization’s (ILO) Maritime Labour Convention, 2006 (MLC, 2006), ratified by Nigeria on June 18th, 2013, and implemented by the Nigerian Maritime Administration and Safety Agency (NIMASA).
+  </p>
+  <p>
+    NSWBN maintains active membership with the International Seafarers Welfare Assistance Network (ISWAN), an esteemed international organization with over two decades of experience in supporting seafarers' welfare globally. The organizational structure of NSWBN is designed for optimal functionality, comprising Trustees, an Executive arm, and Seafarers Port Welfare Committees (SPWCs) at various seaports, terminals, and jetties. Membership in the Board is voluntary, with participants drawn from diverse organizations within the ports, beginning their involvement as volunteers in the Port Welfare Committees.
+  </p>
+</div>
+
 
           <div className="flex gap-4">
             <button onClick={scrollToContent} className="bg-primary-100 text-white px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition-colors">
