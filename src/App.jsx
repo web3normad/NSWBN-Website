@@ -54,7 +54,7 @@ function App() {
             <Route path="/partnerships/*" element={<Partnerships />} />
 
             {/* Research and Publications Section */}
-            <Route path="/research-publications/*" element={<ResearchPublications />} />
+            <Route path="/research/*" element={<ResearchPublications />} />
 
             {/* Get Involved Section */}
             <Route path="/get-involved/*" element={<GetInvolved />} />

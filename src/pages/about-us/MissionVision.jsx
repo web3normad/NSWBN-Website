@@ -1,6 +1,5 @@
 import React from 'react';
-import Report from "../../../public/assets/Research_Report_Seafarers_Welfare_Board+pdf.pdf";
-import ReportPreview from '../../assets/images/report.png';
+
 
 const MissionVision = () => {
   return (
@@ -24,16 +23,7 @@ const MissionVision = () => {
           </p>
         </div>
 
-        <div className="flex justify-center">
-          {/* Preview of the PDF's first page */}
-          <a href={Report} target="_blank" rel="noopener noreferrer">
-            <img
-              src={ReportPreview}
-              alt="Research Report Preview"
-              className="w-full max-w-4xl cursor-pointer"
-            />
-          </a>
-        </div>
+        
       </div>
     </div>
   );

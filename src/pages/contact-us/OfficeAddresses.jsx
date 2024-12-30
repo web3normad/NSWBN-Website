@@ -7,7 +7,7 @@ const OfficeAddresses = () => {
         Office Locations
       </h2>
       
-      <div className="max-w-7xl mx-auto space-y-6">
+      <div className=" mx-auto space-y-6">
         <p className="text-gray-700 leading-relaxed text-center">
           NSWBN operates from multiple locations across Nigeria to ensure accessible and comprehensive support for seafarers. Below are the details of our main office and regional offices.
         </p>

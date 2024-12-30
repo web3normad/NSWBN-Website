@@ -7,7 +7,7 @@ const FAQs = () => {
         Frequently Asked Questions
       </h2>
       
-      <div className="max-w-7xl mx-auto space-y-6">
+      <div className=" mx-auto space-y-6">
         <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
           <h3 className="text-lg font-bold text-primary-100 mb-4">Common Questions</h3>
           <ol className="space-y-4 text-gray-700">
@@ -96,36 +96,7 @@ const FAQs = () => {
           </div>
         </div>
 
-        <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-          <h3 className="text-lg font-bold text-primary-100 mb-4">General Information</h3>
-          <div className="space-y-4 text-gray-700">
-            <div>
-              <h4 className="text-base font-semibold text-primary-100 mb-2">Operating Hours:</h4>
-              <ul className="list-disc pl-6">
-                <li>NSWBN offices are open Monday to Friday, from 9:00 AM to 5:00 PM. (Hopefully the secretariat will be opened soon)</li>
-                <li>Emergency services are available 24/7 for urgent assistance.</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-base font-semibold text-primary-100 mb-2">Location:</h4>
-              <ul className="list-disc pl-6">
-                <li>Our main office is located in Lagos, Nigeria. Please refer to the 'Contact Us' page for detailed address and directions.</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-base font-semibold text-primary-100 mb-2">Confidentiality:</h4>
-              <ul className="list-disc pl-6">
-                <li>NSWBN is committed to maintaining the confidentiality and privacy of all seafarers who use our services. Personal information is handled in accordance with our privacy policy, which is available on our website.</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-base font-semibold text-primary-100 mb-2">Feedback and Complaints:</h4>
-              <ul className="list-disc pl-6">
-                <li>We value feedback from seafarers and stakeholders to improve our services. You can submit feedback or complaints via our website's feedback form or by contacting us directly.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+      
       </div>
     </div>
   );

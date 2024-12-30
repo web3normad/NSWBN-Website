@@ -1,34 +1,82 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Lottie from 'lottie-react';
 import animationData from '../assets/images/ship.json';
-
-
+import { ChevronDown } from 'lucide-react';
 
 const Hero = () => {
- 
-
+  const scrollToContent = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+  };
 
   return (
-  
-<div className="flex flex-col md:flex-row items-center justify-between mt-28 md:mt-4 w-full h-screen z-auto bg-blue-50 scroll-smooth overflow-y-hidden md:overflow-y-hidden  px-5 hover:overflow-y-none">
-      {/* Content Section */}
-      <div className="flex justify-center items-center z-2 pt-4  md:mt-0 md:w-1/2">
-        <div className="px-4 md:px-12">
-          <h1 className="text-2xl sm:text-3xl text-logoColor  md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-            Overview of NSWBN
-          </h1>
-          <p className="text-base sm:text-lg md:text-lg text-cyan-800 mb-4 sm:mb-6">
-            The National Seafarers Welfare Board of Nigeria (NSWBN) is a non-profit organization founded in 2003 and formally registered as incorporated trustees with the Corporate Affairs Commission (CAC) on March 30th, 2007. The NSWBN is dedicated to coordinating and supporting shore-based welfare facilities and services for seafarers, irrespective of nationality, race, ethnicity, religion, or creed. This commitment aligns with the Shore-Based Welfare Facilities mandate of Regulation 4.4, Standard A4, as amended, under the International Labour Organization’s (ILO) Maritime Labour Convention, 2006 (MLC, 2006), ratified by Nigeria on June 18th, 2013, and implemented by the Nigerian Maritime Administration and Safety Agency (NIMASA).
-          </p>
-          <p className="text-base sm:text-lg md:text-lg text-cyan-800 mb-4 sm:mb-6">
-            NSWBN maintains active membership with the International Seafarers Welfare Assistance Network (ISWAN), an esteemed international organization with over two decades of experience in supporting seafarers' welfare globally. The organizational structure of NSWBN is designed for optimal functionality, comprising Trustees, an Executive arm, and Seafarers Port Welfare Committees (SPWCs) at various seaports, terminals, and jetties. Membership in the Board is voluntary, with participants drawn from diverse organizations within the ports, beginning their involvement as volunteers in the Port Welfare Committees.
-          </p>
+    <div className="relative min-h-screen bg-gradient-to-br from-blue-50 via-blue-50 to-white">
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
+      
+      <div className="relative px-6 lg:px-12 mx-auto flex flex-col md:flex-row items-center justify-between pt-20 md:pt-0 h-screen">
+        {/* Content Section */}
+        <div className="md:w-1/2 space-y-6 md:pr-12">
+          <div className="space-y-2">
+            <h1 className="text-3xl md:text-xl  text-primary-100 font-semibold tracking-wide uppercase">
+              Welcome to NSWBN
+            </h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight">
+              Supporting Seafarers Across Nigeria
+            </h1>
+          </div>
+
+          <div className="prose prose-lg text-gray-600 space-y-4">
+            <p>
+              The National Seafarers Welfare Board of Nigeria (NSWBN) is a non-profit organization founded in 2003, dedicated to coordinating and supporting shore-based welfare facilities for all seafarers.
+            </p>
+            <p>
+              Our commitment aligns with the Shore-Based Welfare Facilities mandate of Regulation 4.4, Standard A4, under the ILO Maritime Labour Convention, 2006 (MLC, 2006).
+            </p>
+          </div>
+
+          <div className="flex gap-4">
+            <button onClick={scrollToContent} className="bg-primary-100 text-white px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition-colors">
+              Learn More
+            </button>
+          
+          </div>
+        </div>
+
+        {/* Animation Section */}
+        <div className="hidden md:block md:w-1/2">
+          <Lottie 
+            animationData={animationData} 
+            className="w-full h-full object-contain"
+            loop={true}
+          />
         </div>
       </div>
 
-      {/* Animation Section */}
-      <div className="hidden mb-80 md:block md:w-1/2 h-full">
-        <Lottie animationData={animationData} className="w-full h-full object-contain" loop={true} />
+      {/* Scroll Indicator */}
+      <button 
+        onClick={scrollToContent}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
+      >
+        <ChevronDown className="w-8 h-8 text-primary-100" />
+      </button>
+
+      {/* Stats Section */}
+      <div className="absolute bottom-0 left-0 right-0 bg-white/80 backdrop-blur-sm border-t border-gray-200">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 p-6">
+          {[
+            { label: "Years Active", value: "17+" },
+            { label: "Ports Covered", value: "6" },
+            { label: "Seafarers Supported", value: "10,000+" },
+            { label: "Volunteer Members", value: "100+" }
+          ].map((stat, index) => (
+            <div key={index} className="text-center">
+              <div className="text-2xl font-bold text-primary-100">{stat.value}</div>
+              <div className="text-sm text-gray-600">{stat.label}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

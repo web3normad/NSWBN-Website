@@ -4,66 +4,57 @@ const Services = () => {
   return (
     <div className="px-6 py-32 bg-white text-gray-800 h-full sm:px-8 md:px-16 lg:px-24">
       <h1 className="text-3xl text-primary-100 font-bold leading-tight mb-8 uppercase tracking-wider text-center pb-4">
-        Services
+        Our Services
       </h1>
       <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-        The National Seafarers Welfare Board of Nigeria (NSWBN) is dedicated to
-        providing a comprehensive array of services designed to enhance the
-        wellbeing and professional development of seafarers. Our services are
-        meticulously structured to address the diverse needs of seafarers,
-        ensuring that they receive the necessary support and resources for a
-        fulfilling and secure career at sea. Below are the core services offered
-        by NSWBN:
+        The National Seafarers Welfare Board of Nigeria (NSWBN) is committed to
+        supporting maritime organizations and promoting the welfare and wellbeing of seafarers. Our services adhere to international standards, particularly the Maritime Labour Convention, 2006. Below are the key services we provide:
       </p>
 
       {[
         {
           title: "Welfare Services",
-          description: "NSWBN offers a wide range of welfare services aimed at promoting the overall welfare and wellbeing of seafarers.",
+          description: "Promoting seafarers' welfare and wellbeing through coordinated efforts and facilities.",
           items: [
-            "Provision of welfare services to seafarers in need, ensuring stability during times of crisis.",
-            "Access to recreational facilities and activities to promote physical fitness and mental relaxation.",
-            "Organization of social events and activities to foster community and camaraderie among seafarers."
+            "Monitoring the adequacy and availability of welfare facilities in Nigerian seaports.",
+            "Providing shore-based services, including recreational facilities and assistance for local and international seafarers.",
+            "Fostering a welcoming environment for visiting seafarers, showcasing Nigeria's hospitality."
           ]
         },
         {
-          title: "Legal Assistance",
-          description: "Seafarers often encounter legal challenges that require expert guidance and support.",
+          title: "Emergency Support",
+          description: "Offering critical assistance during emergencies and unforeseen circumstances.",
           items: [
-            "Access to legal advice and consultations to address various legal issues faced by seafarers.",
-            "Provision of legal representation in court or other legal forums to protect seafarers' rights.",
-            "Advocacy for the rights of seafarers at both national and international levels."
+            "Rapid response to emergencies such as medical crises, piracy incidents, and abandoned seafarers.",
+            "Coordinating with stakeholders to ensure timely interventions during emergencies.",
+            "Providing transportation and support through initiatives like the ITF Seafarers Trust buses for stranded or abandoned seafarers."
           ]
         },
         {
-          title: "Mental Health and Counseling Services",
-          description: "The mental health and psychological wellbeing of seafarers are of paramount importance.",
+          title: "Advocacy and Legal Support",
+          description: "Upholding seafarers' rights and providing legal assistance when needed.",
           items: [
-            "Provision of professional counseling services to address mental health issues.",
-            "Confidential and supportive environment for discussing personal and professional challenges.",
-            "Access to psychosocial support programs designed to help seafarers cope with life at sea.",
-            "Group therapy sessions and support groups to promote mental resilience and wellbeing."
+            "Advocating for the welfare needs of seafarers at the national and international levels.",
+            "Offering legal advice and representation to address challenges faced by seafarers.",
+            "Facilitating support for seafarers affected by piracy or wrongful detention."
           ]
         },
         {
-          title: "Training and Development Programs",
-          description: "Continuous professional development is essential for the career progression of seafarers.",
+          title: "Coordination and Collaboration",
+          description: "Ensuring effective communication and planning for seafarers' welfare.",
           items: [
-            "Specialized training programs to enhance skills and competencies.",
-            "Access to certifications and qualifications for career advancement.",
-            "Educational programs and workshops on safety, health, and operational efficiency.",
-            "Collaboration with maritime training institutions to provide accredited courses."
+            "Establishing and regulating Port Welfare Committees across major Nigerian ports.",
+            "Exchanging information between stakeholders to coordinate welfare initiatives.",
+            "Providing capacity-building programs for volunteers and welfare organizations."
           ]
         },
         {
-          title: "Emergency Assistance",
-          description: "In times of emergency, NSWBN is committed to providing immediate and effective assistance to seafarers.",
+          title: "Training and Awareness",
+          description: "Empowering seafarers and welfare workers through education and training.",
           items: [
-            "Rapid response to emergencies, including medical issues and crises at sea.",
-            "Coordination with authorities to ensure timely intervention.",
-            "Support during natural disasters, piracy, and maritime threats.",
-            "Assistance with evacuation, repatriation, and critical services.",
-            "Support services for seafarers' families during emergencies."
+            "Organizing workshops and training sessions to build awareness about seafarers' rights and welfare.",
+            "Developing programs to train ship-welfare visitors and support staff.",
+            "Promoting best practices for mental health, safety, and hygiene among seafarers."
           ]
         }
       ].map((section, index) => (

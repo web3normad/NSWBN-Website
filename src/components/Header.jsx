@@ -19,6 +19,7 @@ const Header = () => {
   };
 
   const handleLinkClick = () => {
+    setIsOpen(false);
     setOpenDropdown(null);
   };
 
@@ -33,548 +34,172 @@ const Header = () => {
     };
   }, []);
 
+  // Navigation Data
+  const navigationItems = {
+    news: {
+      title: "News",
+      links: [
+        { to: "/news-events/latest-news", text: "Latest News" },
+        { to: "/news-events/gallery", text: "Gallery" }
+      ]
+    },
+    involved: {
+      title: "Get Involved",
+      links: [
+        { to: "/projects-initiatives/how-to-get-involved", text: "How to Get Involved" },
+        { to: "/partnerships/our-partners", text: "Our Partners" },
+        { to: "/get-involved/volunteer", text: "Volunteer" },
+        { to: "/get-involved/donate", text: "Donate" },
+      ]
+    },
+  };
+
+  const DropdownMenu = ({ item, name }) => (
+    <div className="relative group">
+      <button
+        onClick={() => toggleDropdown(name)}
+        className="flex items-center gap-1 px-3 py-2 hover:text-primary-100 focus:outline-none"
+      >
+        {item.title}
+        {openDropdown === name ? <RiArrowUpSLine /> : <RiArrowDownSLine />}
+      </button>
+      {openDropdown === name && (
+        <div className="absolute z-50 w-60 py-2 mt-1 bg-white rounded-md shadow-lg">
+          {item.links.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              onClick={handleLinkClick}
+            >
+              {link.text}
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+
+  const MobileDropdown = ({ item, name }) => (
+    <div className="space-y-2">
+      <button
+        onClick={() => toggleDropdown(name)}
+        className="w-full flex justify-between items-center py-2 text-white"
+      >
+        {item.title}
+        {openDropdown === name ? <RiArrowUpSLine /> : <RiArrowDownSLine />}
+      </button>
+      {openDropdown === name && (
+        <div className="pl-4 space-y-2">
+          {item.links.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              className="block py-2 text-white/90 hover:text-white"
+              onClick={handleLinkClick}
+            >
+              {link.text}
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+
   return (
     <div
-    className={`fixed top-0 left-0 w-full z-50 transition-shadow duration-300 ${
-      isScrolled
-        ? "bg-white shadow-lg"
-        : "bg-white"
-    }`}
-  >
-      <div className="flex px-16 py-4 items-center">
-        {/* Logo on the left */}
-
+      className={`fixed top-0 left-0 w-full pt-5 z-50 transition-shadow duration-300 ${
+        isScrolled ? "bg-white shadow-lg" : "bg-white"
+      }`}
+    >
+      <div className="flex justify-between items-center px-4 md:px-8 lg:px-16 py-2 md:py-4">
+        {/* Logo container */}
         <div className="flex items-center">
           <Link to="/home-page">
-            <div className="flex gap-3 items-center">
-              <img src={Logo} alt="NSWBN Logo" className="w-20" />
+            <div className="flex gap-2 md:gap-3 items-center">
+              <img src={Logo} alt="NSWBN Logo" className="w-12 md:w-16 lg:w-20" />
               <div className="border-l-2 border-primary-100 px-1 text-primary-100">
-                <h1 className="font-bold text-nowrap">National Seafarers Welfare</h1>
-                <h1 className="font-bold">Board of Nigeria</h1>
+                <h1 className="font-bold text-sm md:text-base lg:text-lg whitespace-nowrap">
+                  National Seafarers Welfare
+                </h1>
+                <h1 className="font-bold text-sm md:text-base lg:text-lg">
+                  Board of Nigeria
+                </h1>
               </div>
             </div>
           </Link>
         </div>
 
-        {/* Hamburger menu for mobile */}
-        <div className="md:hidden">
-          <button onClick={toggleSidebar} className="text-primary-200 text-2xl">
-            {isOpen ? (
-              <AiOutlineClose className="text-primary-100 ml-24" />
-            ) : (
-              <AiOutlineMenu className="text-primary-100 ml-24" />
-            )}
-          </button>
-        </div>
-
-        {/* Navigation in the center for desktop */}
-        <div className="hidden md:flex flex-col gap-4 md:flex-row md:flex-1 md:justify-center items-center space-y-4 md:space-y-0 md:space-x-2">
-          <nav className="flex flex-col items-center gap-10 md:flex-row space-y-5 md:space-y-0 md:space-x-2 px-4 text-nowrap text-md font-semibold">
-          <div className="relative hover:text-primary-100">
-              <Link to="/home-page">
-              <button
-                onClick={() => toggleDropdown('seafarersResources')}
-                className=" flex items-center gap-1 focus:outline-none hover:text-logoColor"
+        {/* Desktop Navigation */}
+        <nav className="hidden lg:flex items-center space-x-4">
+          <Link to="/home-page" className="px-3 py-2 hover:text-primary-100">
+            Home
+          </Link>
+          <Link to="/about-us/history" className="px-3 py-2 hover:text-primary-100">
+            About Us
+          </Link>
+          <Link to="/services" className="px-3 py-2 hover:text-primary-100">
+            Services
+          </Link>
+         
+          {Object.entries(navigationItems).map(([name, item]) => (
+                <DropdownMenu key={name} item={item} name={name} />
+              ))}
+           <Link 
+                to="/research" 
+                className="py-2"
+                onClick={handleLinkClick}
               >
-               Home
-                
-              </button>
+                Research & Reports
               </Link>
-            </div>
-            
-            {/* About */}
-            <div className="relative hover:text-primary-100">
-              <button
-                onClick={() => toggleDropdown("aboutUs")}
-                className="flex items-center gap-1 focus:outline-none hover:text-logoColor"
-              >
-                About
-                {openDropdown === "aboutUs" ? (
-                  <RiArrowUpSLine />
-                ) : (
-                  <RiArrowDownSLine />
-                )}
-              </button>
-              {openDropdown === "aboutUs" && (
-                <div className="absolute bg-primary-100 text-black shadow-lg mt-5 rounded-md w-60">
-                  <Link
-                    to="/about-us/history"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    History
-                  </Link>
-                  <Link
-                    to="/about-us/mission-vision"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Mission and Vision
-                  </Link>
-                  <Link
-                    to="/about-us/org-structure"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Organizational Structure
-                  </Link>
-                  <Link
-                    to="/about-us/board-members"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Board Members
-                  </Link>
-                 
-                </div>
-              )}
-            </div>
-
-
-             {/* How we Help */}
-               <div className="relative hover:text-primary-100">
-              <button
-                onClick={() => toggleDropdown('help')}
-                className=" flex items-center gap-1 focus:outline-none hover:text-logoColor"
-              >
-               How We Help
-                {openDropdown === 'help' ? (
-                  <RiArrowUpSLine />
-                ) : (
-                  <RiArrowDownSLine />
-                )}{" "}
-              </button>
-              {openDropdown === 'help' && (
-                <div className="absolute bg-primary-100 text-black shadow-lg mt-5 rounded-md w-60">
-                  <Link to="/services"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                  Services
-                  </Link>
-
-               
-                    <Link to="/seafarers-resources"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                     Seafarers Resources
-                  </Link>
-                  <Link
-                    to="/seafarers-resources/employment-opportunities"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Employment Opportunities
-                  </Link>
-                  <Link
-                    to="/seafarers-resources/education-training"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Education and Training
-                  </Link>
-                </div>
-              )}
-            </div>
-
-            {/* News */}
-            <div className="relative hover:text-primary-100">
-              <button
-                onClick={() => toggleDropdown('newsEvents')}
-                className=" flex items-center gap-1 focus:outline-none hover:text-logoColor"
-              >
-                News
-                {openDropdown === 'newsEvents'  ? (
-                  <RiArrowUpSLine />
-                ) : (
-                  <RiArrowDownSLine />
-                )}{" "}
-              </button>
-              {openDropdown === 'newsEvents' && (
-                <div className="absolute bg-primary-100 text-black shadow-lg mt-5 rounded-md w-60">
-                  <Link
-                    to="/news-events/latest-news"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Latest News
-                  </Link>
-                  <Link
-                    to="/news-events/upcoming-events"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Upcoming Events
-                  </Link>
-                  <Link
-                    to="/news-events/event-calender"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                   Event Calender
-                  </Link>
-                  <Link
-                    to="/news-events/gallery"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                   Gallery
-                  </Link>
-                </div>
-              )}
-            </div>
-
-              {/* Get Invovled */}
-            <div className="relative hover:text-primary-100">
-              <button
-                onClick={() => toggleDropdown('partnerships')}
-                className=" flex items-center gap-1 focus:outline-none hover:text-logoColor"
-              >
-               Get Involved
-                {openDropdown === 'partnerships' ? (
-                  <RiArrowUpSLine />
-                ) : (
-                  <RiArrowDownSLine />
-                )}{" "}
-              </button>
-              {openDropdown === 'partnerships' && (
-                <div className="absolute bg-primary-100 text-black shadow-lg mt-5 rounded-md w-60">
-                   <Link
-                    to="/projects-initiatives/how-to-get-involved"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    How to Get Involved
-                  </Link>
-
-                  <Link
-                    to="/partnerships/our-partners"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Our Partners
-                  </Link>
-                  <Link
-                    to="/partnerships/become-a-partner"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Become a Partner
-                  </Link>
-                  <Link
-                    to="/get-involved/volunteer"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Volunteer
-                  </Link>
-                  <Link
-                    to="/get-involved/donate"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Donate
-                  </Link>
-                  <Link
-                    to="/get-involved/advocate"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Advocate
-                  </Link>
-                </div>
-              )}
-            </div>
-
-           
-
-            <div className="relative hover:text-primary-100">
-              <button
-                onClick={() => toggleDropdown('contactUs')}
-                className=" flex items-center gap-1 focus:outline-none hover:text-logoColor"
+              <Link 
+                to="/contact-us/contact-form" 
+                className="py-2"
+                onClick={handleLinkClick}
               >
                 Contact Us
-                {openDropdown === 'contactUs' ? <RiArrowUpSLine /> : <RiArrowDownSLine />}{" "}
-              </button>
-              {openDropdown === 'contactUs'  && (
-                <div className="absolute bg-primary-100 text-black shadow-lg mt-5 right-0 rounded-md w-52">
-                  <Link
-                    to="/contact-us/contact-form"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Contact Form
-                  </Link>
-                  <Link
-                    to="/contact-us/office-locations"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Office Locations
-                  </Link>
-                  
-                  <Link
-                    to="/faqs"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    FAQs
-                  </Link>
-                </div>
-              )}
-            </div>
+              </Link>
+          {/* <button className="ml-4 px-6 py-2 bg-primary-100 text-white rounded-sm hover:bg-primary-100/90 transition-colors">
+            Support Us
+          </button> */}
+        </nav>
 
-            <div className="relative hover:text-primary-100">
-              <button
-                onClick={() => toggleDropdown('auth')}
-                className="bg-primary-100 text-white flex items-center gap-1 px-8 py-2 rounded-sm focus:outline-none "
-              >
-               Support Us
-               
-              </button>
-            </div>
-          </nav>
+        {/* Mobile menu button */}
+        <div className="lg:hidden">
+          <button onClick={toggleSidebar} className="p-2 text-primary-100">
+            {isOpen ? <AiOutlineClose size={24} /> : <AiOutlineMenu size={24} />}
+          </button>
         </div>
 
-        {/* Sidebar for mobile */}
+        {/* Mobile Sidebar */}
         <div
-          className={`fixed top-0 right-0 h-full w-64 bg-primary-100 text-white z-50 transform ${
+          className={`fixed top-0 right-0 h-full w-full sm:w-80 bg-primary-100 text-white z-50 transform ${
             isOpen ? "translate-x-0" : "translate-x-full"
-          } transition-transform duration-300 ease-in-out`}
+          } transition-transform duration-300 ease-in-out lg:hidden`}
         >
-          <button onClick={toggleSidebar} className="text-2xl p-4">
-            <AiOutlineClose />
-          </button>
-          <nav className="flex flex-col p-4 space-y-6 text-md">
-            <div className="relative">
-              <button
-                onClick={() => toggleDropdown('aboutUs')}
-                className="text-white flex items-center gap-2 focus:outline-none hover:text-gray-200"
+          <div className="flex justify-between items-center p-4 border-b border-white/20">
+            <h2 className="text-xl font-bold">Menu</h2>
+            <button onClick={toggleSidebar} className="p-2">
+              <AiOutlineClose size={24} />
+            </button>
+          </div>
+
+          <div className="overflow-y-auto h-[calc(100vh-70px)]">
+            <nav className="flex flex-col p-4 space-y-4">
+              <Link to="/home-page" className="py-2 text-white" onClick={handleLinkClick}>
+                Home
+              </Link>
+              {Object.entries(navigationItems).map(([name, item]) => (
+                <MobileDropdown key={name} item={item} name={name} />
+              ))}
+              {/* <button
+                onClick={handleLinkClick}
+                className="w-full py-3 mt-4 bg-white text-primary-100 rounded-sm font-semibold"
               >
-                About Us
-                {openDropdown ? <RiArrowUpSLine /> : <RiArrowDownSLine />}{" "}
-              </button>
-              {openDropdown  && (
-                <div className="mt-2 rounded-md">
-                  <Link
-                    to="/about-us/history"
-                    className="block px-4 py-2 hover:bg-gray-600"
-                    onClick={handleLinkClick}
-                  >
-                    History
-                  </Link>
-                  <Link
-                    to="/about-us/mission-vision"
-                    className="block px-4 py-2 hover:bg-gray-600"
-                    onClick={handleLinkClick}
-                  >
-                    Mission and Vision
-                  </Link>
-                  <Link
-                    to="/about-us/org-structure"
-                    className="block px-4 py-2 hover:bg-gray-600"
-                    onClick={handleLinkClick}
-                  >
-                    Organizational Structure
-                  </Link>
-                  <Link
-                    to="/about-us/board-members"
-                    className="block px-4 py-2 hover:bg-gray-600"
-                    onClick={handleLinkClick}
-                  >
-                    Board Members
-                  </Link>
-                  <Link
-                    to="/about-us/contact-info"
-                    className="block px-4 py-2 hover:bg-gray-600"
-                    onClick={handleLinkClick}
-                  >
-                    Contact Information
-                  </Link>
-                </div>
-              )}
-            </div>
-           
-            <div className="relative">
-              <button
-                onClick={() => toggleDropdown('seafarersResources')}
-                className="text-white flex items-center gap-2 focus:outline-none hover:text-gray-200"
-              >
-                Seafarers' Resources
-                {openDropdown ? (
-                  <RiArrowUpSLine />
-                ) : (
-                  <RiArrowDownSLine />
-                )}{" "}
-              </button>
-              {openDropdown && (
-                <div className=" mt-2 rounded-md">
-                  <Link
-                    to="/seafarers-resources/seafarers-rights"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Seafarers Rights
-                  </Link>
-                  <Link
-                    to="/seafarers-resources/employment-opportunities"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Employment Opportunities
-                  </Link>
-                  <Link
-                    to="/seafarers-resources/education-training"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Education and Training
-                  </Link>
-                  <Link
-                    to="/seafarers-resources/health-safety"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Health and Safety
-                  </Link>
-                  <Link
-                    to="/seafarers-resources/useful-contacts"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Useful Contacts
-                  </Link>
-                </div>
-              )}
-            </div>
-            <div className="relative">
-              <button
-                onClick={() => toggleDropdown('newsEvents')}
-                className="text-white flex items-center gap-2 focus:outline-none hover:text-gray-200"
-              >
-                News
-                {openDropdown ? (
-                  <RiArrowUpSLine />
-                ) : (
-                  <RiArrowDownSLine />
-                )}{" "}
-              </button>
-              {openDropdown && (
-                <div className=" mt-2 rounded-md">
-                  <Link
-                    to="/news-events/latest-news"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Latest News
-                  </Link>
-                  <Link
-                    to="/news-events/upcoming-events"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Upcoming Events
-                  </Link>
-                  <Link
-                    to="/news-events/press-releases"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Press Releases
-                  </Link>
-                </div>
-              )}
-            </div>
-            <div className="relative">
-              <button
-                onClick={() => toggleDropdown('partnerships')}
-                className="text-white flex items-center gap-2 focus:outline-none hover:text-gray-200"
-              >
-                Partnerships
-                {openDropdown ? (
-                  <RiArrowUpSLine />
-                ) : (
-                  <RiArrowDownSLine />
-                )}{" "}
-              </button>
-              {openDropdown && (
-                <div className=" mt-2 rounded-md">
-                  <Link
-                    to="/partnerships/our-partners"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Our Partners
-                  </Link>
-                  <Link
-                    to="/partnerships/become-a-partner"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Become a Partner
-                  </Link>
-                  <Link
-                    to="/get-involved/volunteer"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Volunteer
-                  </Link>
-                  <Link
-                    to="/get-involved/donate"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Donate
-                  </Link>
-                  <Link
-                    to="/get-involved/advocate"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Advocate
-                  </Link>
-                </div>
-              )}
-            </div>
-            
-            <div className="relative">
-              <button
-                onClick={() => toggleDropdown('contactUs')}
-                className="text-white flex items-center gap-2 focus:outline-none hover:text-gray-200"
-              >
-                Contact Us
-                {openDropdown ? <RiArrowUpSLine /> : <RiArrowDownSLine />}{" "}
-              </button>
-              {openDropdown && (
-                <div className=" mt-2 rounded-md">
-                  <Link
-                    to="/contact-us/contact-form"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Contact Form
-                  </Link>
-                  <Link
-                    to="/contact-us/office-locations"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    Office Locations
-                  </Link>
-                  <Link
-                    to="/faqs"
-                    className="block px-4 py-2 hover:bg-gray-200"
-                    onClick={handleLinkClick}
-                  >
-                    FAQs
-                  </Link>
-                </div>
-              )}
-            </div>
-            
-          </nav>
+                Support Us
+              </button> */}
+            </nav>
+          </div>
         </div>
       </div>
     </div>

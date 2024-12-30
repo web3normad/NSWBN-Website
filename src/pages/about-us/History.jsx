@@ -1,32 +1,105 @@
 import React from "react";
-import ImageOne from "../../assets/images/media/img-02.jpg"
+import ImageOne from "../../assets/images/media/img-02.jpg";
+import { ActivitySquare, MapPin, Users2, Building2 } from "lucide-react";
 
-const History = () => {
+const AboutPage = () => {
   return (
-    <div className="px-6 py-32 sm:px-8 md:px-16 lg:px-24">
-      <h2 className="text-lg sm:text-xl md:text-xl lg:text-2xl font-bold leading-tight mb-6 text-primary-100 text-center">
-        History of NSWBN
-      </h2>
-      
-      <div>
-        <p className="mb-6 text-gray-700 leading-relaxed">
-          The National Seafarers Welfare Board of Nigeria (NSWBN) was established in 2003 with a resolute commitment to advancing the welfare of seafarers operating within Nigerian waters and globally. In recognition of its pivotal role, the NSWBN was formally registered as incorporated trustees with the Corporate Affairs Commission (CAC) on March 30th, 2007. This milestone marked the beginning of a dedicated journey towards ensuring that the welfare needs of seafarers are met in accordance with international standards.
-        </p>
-        
-        <p className="mb-6 text-gray-700 leading-relaxed">
-          The Board's establishment is deeply rooted in the principles enshrined in the International Labour Organization's (ILO) Maritime Labour Convention, 2006 (MLC, 2006), particularly the provisions of Regulation 4.4, Standard A4, as amended. Nigeria's ratification of the MLC, 2006 on June 18th, 2013, and its subsequent implementation by the Nigerian Maritime Administration and Safety Agency (NIMASA) underscores the national commitment to this cause.
-        </p>
-        
-        <div className="flex justify-center">
-          <img 
-            src={ImageOne} 
-            alt="History" 
-            className="w-full max-w-4xl h-auto object-cover rounded-lg shadow-lg"
-          />
+    <div className="min-h-screen ">
+      <div className="px-6 py-36 sm:px-8 md:px-16 lg:px-24  mx-auto">
+        {/* Hero Section */}
+        <div className="mb-24 text-center">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary-100 mb-6">
+            About NSWBN
+          </h1>
+          <div className="w-24 h-1 bg-primary-100 mx-auto mb-6"></div>
+          <p className="text-gray-600 md:text-lg max-w-3xl mx-auto">
+            Dedicated to providing shore-based welfare services to seafarers across Nigerian ports since 2007
+          </p>
         </div>
+
+        {/* History Section */}
+        <section className="mb-24">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <h2 className="text-2xl md:text-3xl font-bold text-primary-100">Our History</h2>
+              <div className="prose text-gray-600">
+                <p>
+                  The National Seafarers Welfare Board of Nigeria (NSWBN) emerged from the Joint Maritime Labour Industrial Council (JOMALIC), officially registering with the Corporate Affairs Commission in March 2007.
+                </p>
+                <p>
+                  Our services align with the ILO Maritime Labour Convention (2006), particularly focusing on seafarer welfare under Regulation 4.4 and Standard A4.4. Nigeria's ratification in 2013 strengthened our mandate under NIMASA's oversight.
+                </p>
+              </div>
+            </div>
+            <div className="relative">
+              <img 
+                src={ImageOne} 
+                alt="NSWBN History" 
+                className="rounded-2xl shadow-xl w-full h-[400px] object-cover"
+              />
+              <div className="absolute -bottom-6 -right-6 bg-primary-100 text-white p-4 rounded-lg">
+                <p className="font-bold">Est. 2007</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Organization Structure */}
+        <section>
+          <h2 className="text-2xl md:text-3xl font-bold text-primary-100 mb-12 text-center">
+            Organizational Structure
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            {[
+              {
+                icon: <Building2 className="w-8 h-8" />,
+                title: "Board of Trustees",
+                description: "Provides governance and strategic direction, ensuring alignment with international standards"
+              },
+              {
+                icon: <ActivitySquare className="w-8 h-8" />,
+                title: "Executive Arm",
+                description: "Manages daily operations and implements welfare programs across Nigerian ports"
+              },
+              {
+                icon: <Users2 className="w-8 h-8" />,
+                title: "Port Welfare Committees",
+                description: "Delivers on-ground services through dedicated teams at key ports nationwide"
+              }
+            ].map((item, index) => (
+              <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                <div className="bg-primary-100 text-white p-3 rounded-lg w-fit mb-4">
+                  {item.icon}
+                </div>
+                <h3 className="text-xl font-bold text-primary-100 mb-3">{item.title}</h3>
+                <p className="text-gray-600">{item.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="bg-gray-50 p-8 rounded-2xl shadow-lg">
+            <h3 className="text-xl font-bold text-primary-100 mb-6">Port Locations</h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                "Tin Can Island",
+                "Port Harcourt (Onne)",
+                "Warri",
+                "Lagos",
+                "Calabar",
+                "Apapa"
+              ].map((port, index) => (
+                <div key={index} className="flex items-center space-x-3 text-gray-600">
+                  <MapPin className="w-5 h-5 text-primary-100" />
+                  <span>{port}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   );
 };
 
-export default History;
+export default AboutPage;
