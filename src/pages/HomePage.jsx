@@ -18,12 +18,12 @@ const HomePage = () => {
       <Hero />
 
       {/* Content Sections */}
-      <div className="mx-10  py-32 px-6 lg:px-12 space-y-24">
+      <div className="lg:mx-10  py-32 px-6 lg:px-12 space-y-24">
         {/* Port Committees */}
         <section>
           <div className="flex items-center gap-4 mb-8">
             <Anchor className="w-8 h-8 text-primary-100" />
-            <h2 className="text-3xl font-bold text-gray-900">
+            <h2 className="lg:text-3xl font-bold text-gray-900">
               Established Port Welfare Committees
             </h2>
           </div>
@@ -34,10 +34,10 @@ const HomePage = () => {
               { name: "Onne Port SPWC", year: 2018 },
               { name: "Tin-can Island Port SPWC", year: 2018 },
               { name: "Warri Port SPWC", year: 2020 },
-              { name: "Calabar Port SPWC", status: "Awaiting inauguration" }
+              { name: "Calabar Port SPWC" }
             ].map((committee, index) => (
               <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all">
-                <h3 className="text-xl font-bold text-primary-100">{committee.name}</h3>
+                <h3 className="lg:text-xl font-bold text-primary-100">{committee.name}</h3>
                 <p className="text-gray-600 mt-2">
                   {committee.status || `Established in ${committee.year}`}
                 </p>
@@ -48,9 +48,9 @@ const HomePage = () => {
 
         {/* Approach */}
         <section>
-          <div className="flex items-center gap-4 mb-8">
+          <div className="flex items-center gap-4 mb-4">
             <Building2 className="w-8 h-8 text-primary-100" />
-            <h2 className="text-3xl font-bold text-gray-900">Our Approach</h2>
+            <h2 className=" lg:text-3xl font-bold text-gray-900">Our Approach</h2>
           </div>
           <div className="bg-white rounded-xl shadow-lg p-8">
             <div className="grid gap-6 md:grid-cols-2">
@@ -75,9 +75,9 @@ const HomePage = () => {
 
         {/* Functions */}
         <section>
-          <div className="flex items-center gap-4 mb-8">
+          <div className="flex items-center gap-4 mb-4">
             <Users2 className="w-8 h-8 text-primary-100" />
-            <h2 className="text-3xl font-bold text-gray-900">Primary Functions</h2>
+            <h2 className="lg:text-3xl font-bold text-gray-900">Primary Functions</h2>
           </div>
           <div className="bg-white rounded-xl shadow-lg p-8 space-y-6">
             {[

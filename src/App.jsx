@@ -21,6 +21,8 @@ import ContactUs from "./pages/contact-us/ContactUs.jsx";
 import Authentication from "./pages/auth/Authentication.jsx";
 import Sitemap from "./pages/Sitemap.jsx";
 import PrivacyPolicy from "./pages/PrivacyTerms.jsx";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function App() {
   return (

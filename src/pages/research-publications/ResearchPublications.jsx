@@ -4,8 +4,8 @@ import reportImage from "../../assets/images/report.png";
 
 const Section = ({ title, children }) => (
   <div className="mb-12">
-    <h2 className="text-2xl font-bold text-primary-100 mb-4">{title}</h2>
-    <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+    <h2 className="lg:text-2xl font-bold text-primary-100 mb-4">{title}</h2>
+    <div className="bg-white text-sm lg:text-lg rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
       {children}
     </div>
   </div>
@@ -14,7 +14,7 @@ const Section = ({ title, children }) => (
 const ResearchCard = ({ title, description, date }) => (
   <div className="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow border border-gray-100">
     <p className="text-sm text-primary-100 mb-2">{date}</p>
-    <h3 className="font-semibold text-lg mb-2">{title}</h3>
+    <h3 className="font-semibold text-md lg:text-lg mb-2">{title}</h3>
     <p className="text-gray-600 text-sm">{description}</p>
   </div>
 );
@@ -62,8 +62,8 @@ const ResearchPublications = () => {
   ];
 
   return (
-    <div className="min-h-screen mx-10 py-32">
-      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div className="min-h-screen lg:mx-10 py-10">
+      <div className="mx-2 px-4 sm:px-6 lg:px-8 py-16">
         <div className="space-y-12">
           <Section title="Research Reports">
             <p className="text-gray-600 leading-relaxed mb-6">

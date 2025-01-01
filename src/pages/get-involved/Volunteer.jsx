@@ -40,28 +40,28 @@ const Volunteer = () => {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen py-32">
+    <div className=" min-h-screen py-32">
       <div className="container mx-auto px-4 lg:px-8">
         {/* Hero Section */}
-        <section className=" p-8 mb-10">
-          <h1 className="text-4xl font-bold text-primary-100 mb-6 text-center">Volunteer with NSWBN</h1>
-          <p className="text-lg text-gray-700 mb-4">
+        <section className="py-8 mb-10">
+          <h1 className="text-lg lg:text-4xl font-bold text-primary-100 mb-6 text-center">Volunteer with NSWBN</h1>
+          <p className="text-sm lg:text-lg  text-gray-700 mb-4">
             Volunteering with the National Seafarers' Welfare Board (NSWB) offers a meaningful opportunity to directly contribute to the welfare of seafarers. Our volunteer programs are designed to engage community members in supporting our mission.
           </p>
           
           {/* Volunteer Opportunities */}
           <div className="grid md:grid-cols-3 gap-6 mt-8">
             <div className="bg-teal-50 p-6 rounded-lg">
-              <h3 className="font-bold text-xl text-primary-100 mb-4">Ship Visits</h3>
-              <p>Engage in regular visits to ships to provide support and services to seafarers.</p>
+              <h3 className="font-bold lg:text-xl text-primary-100 mb-4">Ship Visits</h3>
+              <p className='text-sm lg:text-lg '>Engage in regular visits to ships to provide support and services to seafarers.</p>
             </div>
             <div className="bg-teal-50 p-6 rounded-lg">
-              <h3 className="font-bold text-xl text-primary-100 mb-4">Event Organization</h3>
-              <p>Assist in planning and executing workshops, seminars, and community outreach programs.</p>
+              <h3 className="font-bold lg:text-xl text-primary-100 mb-4">Event Organization</h3>
+              <p className='text-sm lg:text-lg '>Assist in planning and executing workshops, seminars, and community outreach programs.</p>
             </div>
             <div className="bg-teal-50 p-6 rounded-lg">
-              <h3 className="font-bold text-xl text-primary-100 mb-4">Administrative Support</h3>
-              <p>Provide assistance in our offices with data entry, correspondence, and project management.</p>
+              <h3 className="font-bold lg:text-xl text-primary-100 mb-4">Administrative Support</h3>
+              <p className='text-sm lg:text-lg '>Provide assistance in our offices with data entry, correspondence, and project management.</p>
             </div>
           </div>
         </section>
@@ -71,7 +71,7 @@ const Volunteer = () => {
           <form onSubmit={handleSubmit} className="space-y-8">
             {/* Personal Information Section */}
             <div className="border-b pb-8">
-              <h2 className="text-2xl font-semibold text-primary-q00 mb-6">Personal Information</h2>
+              <h2 className="lg:text-2xl font-semibold text-primary-q00 mb-6">Personal Information</h2>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">Full Name</label>
@@ -109,9 +109,9 @@ const Volunteer = () => {
 
             {/* Motivation Section */}
             <div className="border-b pb-8">
-              <h2 className="text-2xl font-semibold text-primary-100 mb-6">Your Motivation</h2>
+              <h2 className="text-lg lg:text-2xl font-semibold text-primary-100 mb-6">Your Motivation</h2>
               <div>
-                <label className="block text-gray-700 font-medium mb-2">
+                <label className="block text-md lg:text-lg text-gray-700 font-medium mb-2">
                   Why are you interested in volunteering with NSWB?
                 </label>
                 <textarea 
@@ -123,9 +123,9 @@ const Volunteer = () => {
 
             {/* Skills and Preferences */}
             <div className="border-b pb-8">
-              <h2 className="text-2xl font-semibold text-primary-100 mb-6">Skills and Preferences</h2>
+              <h2 className="text-lg lg:text-2xl font-semibold text-primary-100 mb-6">Skills and Preferences</h2>
               <div>
-                <h3 className="font-medium text-gray-700 mb-4">Select Your Skills</h3>
+                <h3 className="font-medium text-md lg:text-lg text-gray-700 mb-4">Select Your Skills</h3>
                 <div className="grid md:grid-cols-2 gap-4">
                   {skillsOptions.map((skill, index) => (
                     <div key={index} className="flex items-center">
@@ -134,7 +134,7 @@ const Volunteer = () => {
                         id={`skill-${index}`}
                         className="mr-2 text-teal-600 focus:ring-teal-500"
                       />
-                      <label htmlFor={`skill-${index}`} className="text-gray-700">
+                      <label htmlFor={`skill-${index}`} className="text-gray-700 text-sm lg:text-lg">
                         {skill}
                       </label>
                     </div>
@@ -151,7 +151,7 @@ const Volunteer = () => {
                         id={`preference-${index}`}
                         className="mr-2 text-teal-600 focus:ring-teal-500"
                       />
-                      <label htmlFor={`preference-${index}`} className="text-gray-700">
+                      <label htmlFor={`preference-${index}`} className="text-gray-700 text-sm lg:text-lg">
                         {preference}
                       </label>
                     </div>
@@ -162,11 +162,11 @@ const Volunteer = () => {
 
             {/* References Section */}
             <div className="border-b pb-8">
-              <h2 className="text-2xl font-semibold text-primary-100 mb-6">References</h2>
+              <h2 className="text-lg lg:text-2xl font-semibold text-primary-100 mb-6">References</h2>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <h3 className="font-medium text-gray-700 mb-4">Reference 1</h3>
-                  <div className="space-y-4">
+                  <div className="space-y-4 text-md lg:text-lg">
                     <input 
                       type="text" 
                       placeholder="Name"

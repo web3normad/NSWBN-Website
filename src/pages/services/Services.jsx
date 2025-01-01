@@ -3,10 +3,10 @@ import React from "react";
 const Services = () => {
   return (
     <div className="px-6 py-32 bg-white text-gray-800 h-full sm:px-8 md:px-16 lg:px-24">
-      <h1 className="text-3xl text-primary-100 font-bold leading-tight mb-8 uppercase tracking-wider text-center pb-4">
+      <h1 className="text-lg lg:text-3xl text-primary-100 font-bold leading-tight mb-3 uppercase tracking-wider text-center pb-4">
         Our Services
       </h1>
-      <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+      <p className="lg:text-lg text-gray-700 mb-8 leading-relaxed">
         The National Seafarers Welfare Board of Nigeria (NSWBN) is committed to
         supporting maritime organizations and promoting the welfare and wellbeing of seafarers. Our services adhere to international standards, particularly the Maritime Labour Convention, 2006. Below are the key services we provide:
       </p>
@@ -59,10 +59,10 @@ const Services = () => {
         }
       ].map((section, index) => (
         <div key={index} className="mb-12 bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-          <h2 className="text-2xl text-primary-100 font-bold mb-4 border-b border-primary-100 pb-2">
+          <h2 className="lg:text-2xl text-primary-100 font-bold mb-4 border-b border-primary-100 pb-2">
             {section.title}
           </h2>
-          <p className="text-lg text-gray-700 mb-4 italic">
+          <p className="lg:text-lg text-gray-700 mb-4">
             {section.description}
           </p>
           <ul className="space-y-3">

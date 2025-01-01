@@ -1,82 +1,133 @@
 import React from "react";
-import Lottie from 'lottie-react';
-import animationData from '../assets/images/ship.json';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown } from "lucide-react";
+import image10 from "../assets/images/media/img-10.jpg";
+import image13 from "../assets/images/media/img-13.jpg";
+import Lottie from "lottie-react";
+import Slider from "react-slick";
+import animationData from "../assets/images/ship.json";
 
 const Hero = () => {
   const scrollToContent = () => {
     window.scrollTo({
       top: window.innerHeight,
-      behavior: 'smooth'
+      behavior: "smooth",
     });
   };
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3500,
+    arrows: false,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          dots: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
+  const stats = [
+    { label: "Years Active", value: "17+" },
+    { label: "Ports Covered", value: "6" },
+    { label: "Seafarers Supported", value: "10,000+" },
+    { label: "Volunteer Members", value: "100+" },
+  ];
+
   return (
-    <div className="relative min-h-screen bg-gradient-to-br from-blue-50 via-blue-50 to-white">
-      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
-      
-      <div className="relative px-6 lg:px-12 mx-10 flex flex-col md:flex-row items-center justify-between pt-20 md:pt-0 h-screen">
-        {/* Content Section */}
-        <div className="md:w-1/2 space-y-6 md:pr-12">
-          <div className="space-y-2">
-            <h1 className="text-3xl md:text-xl  text-primary-100 font-semibold tracking-wide uppercase">
-              Welcome to NSWBN
-            </h1>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight">
-              Supporting Seafarers Across Nigeria
-            </h1>
+    <div className="relative min-h-screen py-20 lg:py-0 bg-gradient-to-br from-blue-50 via-blue-50 to-white overflow-hidden">
+      {/* Background Grid */}
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]" />
+
+      {/* Main Content */}
+      <div className="relative px-4 sm:px-6 lg:px-8 py-12 md:py-16 lg:py-20">
+        <div className=" lg:mx-10">
+          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+            {/* Text Content */}
+            <div className="w-full lg:w-1/2 space-y-4 md:space-y-6 text-center lg:text-left">
+              <div className="space-y-2 md:space-y-4">
+                <h2 className="text-base sm:text-lg text-primary-100 font-semibold tracking-wide uppercase">
+                  Welcome to NSWBN
+                </h2>
+                <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 tracking-tight">
+                  Supporting Seafarers Across Nigeria
+                </h1>
+              </div>
+
+              {/* Carousel Section */}
+              <div className="w-full bg-white rounded-lg overflow-hidden">
+                <Slider {...settings} className="h-40 sm:h-64 md:h-80">
+                  <div className="h-40 sm:h-64 md:h-80">
+                    <img
+                      src={image10}
+                      alt="Slide 1"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="h-40 sm:h-64 md:h-80">
+                    <img
+                      src={image13}
+                      alt="Slide 2"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </Slider>
+              </div>
+
+              {/* CTA Button */}
+              <div className="flex justify-center lg:justify-start">
+                <button
+                  onClick={scrollToContent}
+                  className="bg-primary-100 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium hover:bg-opacity-90 transition-colors text-sm sm:text-base"
+                >
+                  Learn More
+                </button>
+              </div>
+            </div>
+
+            {/* Lottie Animation - Hidden on mobile */}
+            <div className="hidden lg:block lg:w-1/2">
+              <Lottie
+                animationData={animationData}
+                className="w-full h-full object-contain"
+                loop={true}
+              />
+            </div>
           </div>
-
-          <div className="prose prose-lg text-gray-600 space-y-4">
-  <p>
-    The National Seafarers Welfare Board of Nigeria (NSWBN) is a non-profit organization founded in 2003 and formally registered as incorporated trustees with the Corporate Affairs Commission (CAC) on March 30th, 2007. The NSWBN is dedicated to coordinating and supporting shore-based welfare facilities and services for seafarers, irrespective of nationality, race, ethnicity, religion, or creed. This commitment aligns with the Shore-Based Welfare Facilities mandate of Regulation 4.4, Standard A4, as amended, under the International Labour Organization’s (ILO) Maritime Labour Convention, 2006 (MLC, 2006), ratified by Nigeria on June 18th, 2013, and implemented by the Nigerian Maritime Administration and Safety Agency (NIMASA).
-  </p>
-  <p>
-    NSWBN maintains active membership with the International Seafarers Welfare Assistance Network (ISWAN), an esteemed international organization with over two decades of experience in supporting seafarers' welfare globally. The organizational structure of NSWBN is designed for optimal functionality, comprising Trustees, an Executive arm, and Seafarers Port Welfare Committees (SPWCs) at various seaports, terminals, and jetties. Membership in the Board is voluntary, with participants drawn from diverse organizations within the ports, beginning their involvement as volunteers in the Port Welfare Committees.
-  </p>
-</div>
-
-
-          <div className="flex gap-4">
-            <button onClick={scrollToContent} className="bg-primary-100 text-white px-6 py-3 rounded-lg font-medium hover:bg-opacity-90 transition-colors">
-              Learn More
-            </button>
-          
-          </div>
-        </div>
-
-        {/* Animation Section */}
-        <div className="hidden md:block md:w-1/2">
-          <Lottie 
-            animationData={animationData} 
-            className="w-full h-full object-contain"
-            loop={true}
-          />
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <button 
+      <button
         onClick={scrollToContent}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
+        className="absolute bottom-24 left-1/2 transform -translate-x-1/2 animate-bounce md:bottom-32"
       >
-        <ChevronDown className="w-8 h-8 text-primary-100" />
+        <ChevronDown className="w-6 h-6 text-primary-100" />
       </button>
 
       {/* Stats Section */}
       <div className="absolute bottom-0 left-0 right-0 bg-white/80 backdrop-blur-sm border-t border-gray-200">
-        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 p-6">
-          {[
-            { label: "Years Active", value: "17+" },
-            { label: "Ports Covered", value: "6" },
-            { label: "Seafarers Supported", value: "10,000+" },
-            { label: "Volunteer Members", value: "100+" }
-          ].map((stat, index) => (
-            <div key={index} className="text-center">
-              <div className="text-2xl font-bold text-primary-100">{stat.value}</div>
-              <div className="text-sm text-gray-600">{stat.label}</div>
-            </div>
-          ))}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-4 py-4 sm:py-6">
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-lg sm:text-2xl font-bold text-primary-100">
+                  {stat.value}
+                </div>
+                <div className="text-xs sm:text-sm text-gray-600">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

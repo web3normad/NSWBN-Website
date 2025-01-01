@@ -4,7 +4,6 @@ import { RiArrowDownSLine, RiArrowUpSLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import Logo from "../assets/images/NSWBN_logo.png";
 
-
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -40,8 +39,8 @@ const Header = () => {
       title: "News",
       links: [
         { to: "/news-events/latest-news", text: "Latest News" },
-        { to: "/news-events/gallery", text: "Gallery" }
-      ]
+        { to: "/news-events/gallery", text: "Gallery" },
+      ],
     },
     involved: {
       title: "Get Involved",
@@ -50,7 +49,7 @@ const Header = () => {
         { to: "/partnerships/our-partners", text: "Our Partners" },
         { to: "/get-involved/volunteer", text: "Volunteer" },
         { to: "/get-involved/donate", text: "Donate" },
-      ]
+      ],
     },
   };
 
@@ -108,7 +107,7 @@ const Header = () => {
 
   return (
     <div
-      className={`fixed top-0 left-0 w-full pt-5 z-50 transition-shadow duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-shadow duration-300 ${
         isScrolled ? "bg-white shadow-lg" : "bg-white"
       }`}
     >
@@ -141,27 +140,17 @@ const Header = () => {
           <Link to="/services" className="px-3 py-2 hover:text-primary-100">
             Services
           </Link>
-         
+          <Link to="/research" className="px-3 py-2 hover:text-primary-100">
+            Research & Reports
+          </Link>
+
           {Object.entries(navigationItems).map(([name, item]) => (
-                <DropdownMenu key={name} item={item} name={name} />
-              ))}
-           <Link 
-                to="/research" 
-                className="py-2"
-                onClick={handleLinkClick}
-              >
-                Research & Reports
-              </Link>
-              <Link 
-                to="/contact-us/contact-form" 
-                className="py-2"
-                onClick={handleLinkClick}
-              >
-                Contact Us
-              </Link>
-          {/* <button className="ml-4 px-6 py-2 bg-primary-100 text-white rounded-sm hover:bg-primary-100/90 transition-colors">
-            Support Us
-          </button> */}
+            <DropdownMenu key={name} item={item} name={name} />
+          ))}
+        
+          <Link to="/contact-us/contact-form" className="px-3 py-2 hover:text-primary-100">
+            Contact Us
+          </Link>
         </nav>
 
         {/* Mobile menu button */}
@@ -189,15 +178,22 @@ const Header = () => {
               <Link to="/home-page" className="py-2 text-white" onClick={handleLinkClick}>
                 Home
               </Link>
+              <Link to="/about-us/history" className="py-2 text-white" onClick={handleLinkClick}>
+                About Us
+              </Link>
+              <Link to="/services" className="py-2 text-white" onClick={handleLinkClick}>
+                Services
+              </Link>
+              <Link to="/research" className="py-2 text-white" onClick={handleLinkClick}>
+                Research & Reports
+              </Link>
               {Object.entries(navigationItems).map(([name, item]) => (
                 <MobileDropdown key={name} item={item} name={name} />
               ))}
-              {/* <button
-                onClick={handleLinkClick}
-                className="w-full py-3 mt-4 bg-white text-primary-100 rounded-sm font-semibold"
-              >
-                Support Us
-              </button> */}
+              
+              <Link to="/contact-us/contact-form" className="py-2 text-white" onClick={handleLinkClick}>
+                Contact Us
+              </Link>
             </nav>
           </div>
         </div>

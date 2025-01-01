@@ -20,8 +20,8 @@ const AboutPage = () => {
         {/* History Section */}
         <section className="mb-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <h2 className="text-2xl md:text-3xl font-bold text-primary-100">Our History</h2>
+            <div className="space-y-4">
+              <h2 className="text-xl md:text-3xl font-bold text-primary-100">Our History</h2>
               <div className="prose text-gray-600">
                 <p>
                   The National Seafarers Welfare Board of Nigeria (NSWBN) emerged from the Joint Maritime Labour Industrial Council (JOMALIC), officially registering with the Corporate Affairs Commission in March 2007.
@@ -37,7 +37,7 @@ const AboutPage = () => {
                 alt="NSWBN History" 
                 className="rounded-2xl shadow-xl w-full h-[400px] object-cover"
               />
-              <div className="absolute -bottom-6 -right-6 bg-primary-100 text-white p-4 rounded-lg">
+              <div className="absolute -bottom-6 -right-4 bg-primary-100 text-white px-3 py-2 rounded-lg">
                 <p className="font-bold">Est. 2007</p>
               </div>
             </div>
@@ -46,24 +46,24 @@ const AboutPage = () => {
 
         {/* Organization Structure */}
         <section>
-          <h2 className="text-2xl md:text-3xl font-bold text-primary-100 mb-12 text-center">
+          <h2 className="text-xl md:text-3xl font-bold text-primary-100 mb-6 text-center">
             Organizational Structure
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8 mb-12">
             {[
               {
-                icon: <Building2 className="w-8 h-8" />,
+                icon: <Building2 className="lg:w-8 lg:h-8" />,
                 title: "Board of Trustees",
                 description: "Provides governance and strategic direction, ensuring alignment with international standards"
               },
               {
-                icon: <ActivitySquare className="w-8 h-8" />,
+                icon: <ActivitySquare className="lg:w-8 lg:h-8" />,
                 title: "Executive Arm",
                 description: "Manages daily operations and implements welfare programs across Nigerian ports"
               },
               {
-                icon: <Users2 className="w-8 h-8" />,
+                icon: <Users2 className="lg:w-8 lg:h-8" />,
                 title: "Port Welfare Committees",
                 description: "Delivers on-ground services through dedicated teams at key ports nationwide"
               }
