@@ -2,6 +2,7 @@ import React from "react";
 import Lottie from 'lottie-react';
 import animationData from '../assets/images/ship.json';
 import Hero from "../components/Hero"
+import SurveyBanner from "../components/SurveyBanner"
 import { ChevronDown, Anchor, Building2, Users2 } from 'lucide-react';
 
 const HomePage = () => {
@@ -13,9 +14,12 @@ const HomePage = () => {
   };
 
   return (
-    <div className="min-h-screen ">
+    <div className="min-h-screen pb-12">
       {/* Hero Section */}
       <Hero />
+
+      {/* Survey Banner */}
+      <SurveyBanner />
     </div>
   );
 };
