@@ -11,17 +11,15 @@ import image10 from "../../assets/images/media/img-10.jpg";
 import image11 from "../../assets/images/media/img-11.jpg";
 import image12 from "../../assets/images/media/img-12.jpg";
 
+
 export const images = [
-  { src: image1, description: 'Image Description 1' },
-  { src: image2, description: 'Image Description 2' },
-  { src: image3, description: 'Image Description 3' },
-  { src: image4, description: 'Image Description 4' },
-  { src: image5, description: 'Image Description 5' },
-  { src: image6, description: 'Image Description 6' },
-  { src: image7, description: 'Image Description 7' },
-  { src: image8, description: 'Image Description 8' },
-  { src: image9, description: 'Image Description 9' },
-  { src: image10, description: 'Image Description 10' },
-  { src: image11, description: 'Image Description 11' },
-  { src: image12, description: 'Image Description 12' }
+  { src: image1, description: '' },
+  { src: image2, description: '' },
+  { src: image3, description: 'Ship Visit' },
+  { src: image4, description: 'Ship Visit' },
+  { src: image5, description: 'Ship Visit' },
+  { src: image6, description: 'Ship Visit' },
+  { src: image9, description: 'Ship Visit' },
+  { src: image10, description: '' },
+  { src: image11, description: '' },
 ];

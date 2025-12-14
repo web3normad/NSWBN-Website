@@ -8,7 +8,7 @@ import Footer from "./components/Footer.jsx";
 
 // Import for parent pages
 import HomePage from "./pages/HomePage.jsx";
-import AboutUs from "./pages/about-us/AboutUs.jsx";
+import AboutUs from "./pages/about-us/History.jsx";
 import Services from "./pages/services/Services.jsx";
 import SeafarersResources from "./pages/seafarers-resources/SeafarersResources.jsx";
 import ProjectsInitiatives from "./pages/projects-initiatives/ProjectsInitiatives.jsx";
@@ -23,6 +23,7 @@ import Sitemap from "./pages/Sitemap.jsx";
 import PrivacyPolicy from "./pages/PrivacyTerms.jsx";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Volunteer from "./pages/get-involved/Volunteer.jsx";
 
 function App() {
   return (
@@ -35,10 +36,10 @@ function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/home-page/*" element={<HomePage />} />
+            <Route path="/home/*" element={<HomePage />} />
 
             {/* About Us Section */}
-            <Route path="/about-us/*" element={<AboutUs />} />
+            <Route path="/about-us*" element={<AboutUs />} />
 
             {/* Services Section */}
             <Route path="/services/*" element={<Services />} />
@@ -63,6 +64,9 @@ function App() {
 
             {/* FAQs Section */}
             <Route path="/faqs/*" element={<FAQs />} />
+
+             {/* Volunteer Section */}
+             <Route path="/volunteer/*" element={<Volunteer />} />
 
             {/* Contact Us Section */}
             <Route path="/contact-us/*" element={<ContactUs />} />

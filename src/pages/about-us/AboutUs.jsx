@@ -9,7 +9,7 @@ import BoardMembers from './BoardProfiles';
 const AboutUs = () => {
   return (
     <Routes>
-      <Route path="history" element={<History />} />
+      <Route path="about-us" element={<History />} />
       <Route path="mission-vision" element={<MissionVision />} />
       <Route path="org-structure" element={<OrgStructure />} />
       <Route path="board-members" element={<BoardMembers />} />
